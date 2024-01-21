@@ -23,7 +23,7 @@
         MainContent.appendChild(MainParagraph);
 
         let FirstString = "This is";
-        let SecondString = `${FirstString} the main paragraph`; // "`" - is called a back tick
+        let SecondString = `${FirstString} the Main Paragraph.`;  // "`" - is called a back tick
         MainParagraph.textContent = SecondString;
         MainContent.appendChild(MainParagraph);
 
