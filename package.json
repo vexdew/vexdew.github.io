@@ -1,7 +1,8 @@
 {
-  "name": "Week1",
+  "name": "week3",
   "version": "1.0.0",
   "main": "index.js",
+  "author": "Muhammad Yasir Patel",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",

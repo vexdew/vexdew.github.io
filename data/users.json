@@ -1,0 +1,25 @@
+{
+  "users" :
+          [
+            {
+              "DisplayName" : "Kate Reed",
+              "EmailAddress" : "kreed@gmail.com",
+              "Username": "kreed",
+              "Password" : "223344"
+            },
+            {
+              "DisplayName" : "Joe Rogan",
+              "EmailAddress" : "jrogan@podcast.com",
+              "Username": "jrogan",
+              "Password" : "556677"
+            },
+            {
+              "DisplayName" : "Admin",
+              "EmailAddress" : "admin@network.com",
+              "Username": "admin",
+              "Password" : "889900"
+            }
+
+
+          ]
+}

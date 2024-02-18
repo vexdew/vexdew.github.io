@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us</title>
+    <title>Edit Contact</title>
 
     <!-- CSS SECTION -->
     <link rel = "stylesheet" href = "./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -14,14 +14,15 @@
 
 <header></header>
 
-<div class = "container">
-    <h1 class="mb-5">Contact Us </h1>
+<main class = "container">
+
+    <h1 class="mb-5">Edit Contact </h1>
 
     <div id="messageArea"></div>
 
     <div class="row justify-content-lg-center g-3">
 
-    <form class="col-lg-6 col-md-10 col-sm-10">
+    <form class="col-lg-6 col-md-10 col-sm-10" >
 
         <div class="input-group mb-3">
             <span class="form-label">Full Name </span>
@@ -40,24 +41,13 @@
 
         </div>
 
-        <div class="input-group mb-3">
-            <span class="form-label">Your Message </span>
-            <input type="text" class="form-control" id="message" name="message" aria-describedby="Message" aria-label="Message area Input">
 
-        </div>
-
-        <div class="input-group mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="subscribeCheckBox">
-            <label class="form-check-label" for="subscribeCheckBox">Subscribe to our contact list.</label>
-        </div>
-        <button id="sendButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Submit</button>
+        <button id="editButton" type="submit" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
         <button id="cancelButton" type="reset" class="btn btn-warning"><i class="fa-solid fa-ban"></i> Cancel</button>
     </form>
-        <div class="col-4 col-md-4">
-            <a href="contact-list.html" class="btn btn-primary"><i class="fa-solid fa-users"></i> Show Contact List</a>
-        </div>
+
     </div>
-</div>
+</main>
 
 
 
