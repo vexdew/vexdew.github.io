@@ -91,18 +91,23 @@
 
 <footer></footer>
 
+<!-- Scripting Section -->
 <script>
+    // Function to open the modal after checking if all required fields are filled in
     function openModal() {
+        // Get user input values from form fields
         const fname = document.getElementById("fname").value;
         const lname = document.getElementById("lname").value;
         const email = document.getElementById("email").value;
-        const rate = document.getElementById("rate").value;
         const subject = document.getElementById("subject").value;
         const message = document.getElementById("message").value;
+        const rate = document.getElementById("rate").value;
 
-        if (fname.trim() === "" || lname.trim() === "" || email.trim() === "" || rate.trim() === "" || subject.trim() === "" || message.trim() === "") {
+        // Check if all required fields are filled in
+        if (fname.trim() === "" || lname.trim() === "" || email.trim() === "" || subject.trim() === "" || message.trim() === "" || rate.trim() === "") {
             alert("Please fill in all required fields.");
         } else {
+            // Populate the modal content with user data
             document.getElementById("modal-fname").textContent = fname;
             document.getElementById("modal-lname").textContent = lname;
             document.getElementById("modal-email").textContent = email;
@@ -110,50 +115,72 @@
             document.getElementById("modal-message").textContent = message;
             document.getElementById("modal-rate").textContent = rate;
 
+            // Show the modal by setting its display property to 'block'
             document.getElementById('modal').style.display = 'block';
+
+            // Start the countdown for redirection
+            startRedirectionCountdown();
         }
     }
 
+    // Function to close the modal
     function closeModal() {
+        // Close the modal by setting its display property to 'none'
         document.getElementById('modal').style.display = 'none';
     }
 
-    function countdownRedirect() {
-        let countdown = 5;
+    // Function to handle the countdown timer and redirection
+    function startRedirectionCountdown() {
+        let countdown = 5; // Set the initial countdown time to 5 seconds
         const countdownElement = document.getElementById('countdown');
 
+        // Update the countdown display initially
+        countdownElement.textContent = countdown;
+
+        // Set up the countdown timer
         const countdownInterval = setInterval(function () {
-            countdown--;
-            countdownElement.textContent = countdown;
+            countdown--; // Decrement the countdown value
+            countdownElement.textContent = countdown; // Update the countdown display
 
             if (countdown <= 0) {
+                // Stop the countdown when it reaches or goes below 0
                 clearInterval(countdownInterval);
+                // Redirect to the home page (/home)
                 window.location.href = "/home";
             }
-        }, 1000);
+        }, 1000); // Update the countdown every 1 second (1000 milliseconds)
     }
 
+    // Add an event listener for the DOMContentLoaded event
     document.addEventListener("DOMContentLoaded", function () {
+        // Get the form element by its ID (contact-form)
         const form = document.getElementById("contact-form");
 
+        // Add a submit event listener to the form
         form.addEventListener("submit", function (event) {
+            // Prevent the default form submission behavior
             event.preventDefault();
+
+            // Call the openModal() function to check and show the modal
             openModal();
+
+            // Reset the form fields after submission
             form.reset();
-            document.getElementById('thank-you-message').style.display = 'block';
-            countdownRedirect();
         });
 
+        // Add an event listener for the 'hidden.bs.modal' event of an element with ID 'myModal'
         $('#modal').on('hidden.bs.modal', function () {
+            // Reset the modal info by clearing the content of specific elements
             document.getElementById("modal-fname").textContent = '';
             document.getElementById("modal-lname").textContent = '';
             document.getElementById("modal-email").textContent = '';
-            document.getElementById("modal-rate").textContent = '';
             document.getElementById("modal-subject").textContent = '';
             document.getElementById("modal-message").textContent = '';
+            document.getElementById("modal-rate").textContent = '';
         });
     });
 </script>
+
 
 </body>
 </html>
