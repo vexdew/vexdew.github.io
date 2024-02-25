@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meet Us!</title>
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="./content/style.css">
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-users"></i> Harmony Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html"><i class="fa-solid fa-bag-shopping"></i> Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><i class="fa-solid fa-note-sticky"></i> Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="team.html"><i class="fa-solid fa-bell-concierge"></i> Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html"><i class="fa-solid fa-phone"></i> Blog</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="christopherModal" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Christopher Gugelmeier</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Computer Programming Student</li>
+                    <li>Semester 4</li>
+                    <li>Writes front and backend code for the harmony hub website</li>
+                    <li>christopher.gugelmeier@harmonyhub.com</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="andreiModal" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Andrei Koshelev</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Computer Programming Student</li>
+                    <li>Semester 4</li>
+                    <li>Writes front and backend code for the harmony hub website</li>
+                    <li>andrei.koshelev@harmonyhub.com</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+
+
+    <div class="row">
+        <div class="column">
+                <button type="button" class="teamBtn" data-bs-toggle="modal" data-bs-target="#christopherModal">
+                    <img class="teamImage" src="./images/Christopher.png" alt="Christopher">
+                </button>
+                <h4 class="my-3">Christopher Gugelmeier</h4>
+                <p>Web Developer</p>
+            <button type="button" class="teamBtn" data-bs-toggle="modal" data-bs-target="#andreiModal">
+                <img class="teamImage" src="./images/Andrei.jpg" alt="Andrei">
+            </button>
+            <h4 class="my-3">Andrei Koshelev</h4>
+            <p>Web Developer</p>
+        </div>
+    </div>
+</main>
+
+<!-- Scripting Section -->
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./scripts/main.js"></script>
+
+</body>
+</html>

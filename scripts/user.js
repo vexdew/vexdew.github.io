@@ -69,7 +69,7 @@
                 DisplayName : this._displayName,
                 EmailAddress : this._emailAddress,
                 Username : this._username,
-                Password : this.Password
+                Password : this._password
             }
         }
 

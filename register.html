@@ -1,33 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Register</title>-->
 
-    <!-- CSS SECTION -->
-    <link rel = "stylesheet" href = "./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel = "stylesheet" href = "./node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel = "stylesheet" href = "./content/app.css">
+<!--    &lt;!&ndash; CSS SECTION &ndash;&gt;-->
+<!--    <link rel = "stylesheet" href = "../../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+<!--    <link rel = "stylesheet" href = "../../node_modules/@fortawesome/fontawesome-free/css/all.css">-->
+<!--    <link rel = "stylesheet" href = "../../content/style.css">-->
 
-</head>
-<body>
+<!--</head>-->
+<!--<body>-->
 
-<header></header>
+<!--<header></header>-->
 
 <!-- Main Content -->
-<main class="container" id="mainContent">
+<!--<main class="container" id="mainContent">-->
     <div class="row">
         <div class="offset-md-3 col-md-6 col-sm-12">
             <div class="login" id="contentArea">
                 <h1 class="display-4">Register</h1>
                 <form id="registerForm" novalidate>
+
+                    <div id="messageArea"></div>
+
                     <p class="hint-text">Create your own account. It's free and only takes a minute.</p>
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6">
-                                <input class="form-control" type="text" name="firstName" id="FirstName" placeholder="First Name" required>
+                                <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" required>
                             </div>
+
                             <div class="col-md-6">
                                 <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" required>
                             </div>
@@ -42,7 +46,15 @@
                                        value="" placeholder="Email">
                             </div>
                         </div>
+                    </div>
 
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="email" class="form-control" id="phoneNumber" name="phoneNumber" required
+                                       value="" placeholder="Phone Number">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -74,22 +86,22 @@
             </div>
             <p class="text-center text-muted small">
                 Already have an account?
-                <a href="login.html">Sign in</a>
+                <a href="/login">Sign in</a>
             </p>
         </div>
     </div>
-</main>
+<!--</main>-->
 
 
+<!--<footer></footer>-->
+<!--&lt;!&ndash; SCRIPTING SECTION &ndash;&gt;-->
+<!--<script src = "./node_modules/jquery/dist/jquery.min.js"></script>-->
+<!--<script src = "./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<!--<script src = "./scripts/namespace.js"></script>-->
+<!--<script src = "./scripts/contact.js"></script>-->
+<!--<script src = "./scripts/main.js"></script>-->
 
-<!-- SCRIPTING SECTION -->
-<script src = "./node_modules/jquery/dist/jquery.min.js"></script>
-<script src = "./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src = "./scripts/namespace.js"></script>
-<script src = "./scripts/contact.js"></script>
-<script src = "./scripts/app.js"></script>
-
-</body>
+<!--</body>-->
 
 
-</html>
+<!--</html>-->
