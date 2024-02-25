@@ -1,8 +1,3 @@
-<!-- contact.html-->
-<!-- Authors: Christopher Gugelmeier, Andrei Koshelev -->
-<!-- Student ID: 100852340, 100894383-->
-<!-- Date of Completion: 01-27-2024-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,54 +8,40 @@
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="./content/style.css">
 
-    <script src = "./scripts/namespace.js"></script>
-    <script src = "./scripts/router.js"></script>
-    <script src = "./scripts/user.js"></script>
-    <script src = "./scripts/contact.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./scripts/namespace.js"></script>
+    <script src="./scripts/router.js"></script>
+    <script src="./scripts/user.js"></script>
+    <script src="./scripts/contact.js"></script>
+    <script src="./scripts/main.js"></script>
 
     <!-- Add the W3.CSS stylesheet -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 </head>
 <body>
 
 <header></header>
 
-<!-- Thank You Message with Countdown Timer -->
-<div id="thank-you-message" style="display: none; text-align: center;">
-    <!-- Hidden thank-you message -->
-    <p>Thank you for submitting your information. You will be redirected to the home page in <span id="countdown">5</span> seconds.</p>
-</div>
-
 <div class="container">
-    <!-- Main content container -->
     <div class="header">
         <h2>Contact</h2><br/>
     </div>
-    <!-- Header section with title -->
     <div class="container form-container">
-        <!-- Container for the contact form -->
         <form id="contact-form">
-            <!-- Contact form with an ID -->
             <div class="form-group">
                 <label for="fname">First Name</label>
-                <!-- Input field for the first name -->
                 <input type="text" id="fname" name="firstname" placeholder="Your first name..." required>
-                <!-- Placeholder text and required attribute -->
             </div>
 
             <div class="form-group">
                 <label for="lname">Last Name</label>
-                <!-- Input field for the last name -->
                 <input type="text" id="lname" name="lastname" placeholder="Your last name..." required>
-                <!-- Placeholder text and required attribute -->
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <!-- Input field for the email -->
                 <input type="email" id="email" name="email" placeholder="Your email..." required>
-                <!-- Placeholder text and required attribute -->
             </div>
 
             <div class="form-group">
@@ -77,35 +58,26 @@
 
             <div class="form-group">
                 <label for="subject">Subject</label>
-                <!-- Input field for the subject -->
                 <input type="text" id="subject" name="subject" placeholder="Your subject..." required>
-                <!-- Placeholder text and required attribute -->
             </div>
 
             <div class="form-group">
                 <label for="message">Message</label>
-                <!-- Textarea for the message -->
                 <textarea id="message" name="message" placeholder="Your message goes here..." style="height:200px" required></textarea>
-                <!-- Placeholder text, style, and required attribute -->
             </div>
 
             <div class="form-group">
                 <input type="submit" value="Submit" class="w3-button w3-black">
-                <!-- Submit button with an onclick event to open the modal -->
             </div>
         </form>
     </div>
 </div>
 
-<!-- Modal for displaying user input -->
 <div class="w3-container">
     <div id="modal" class="w3-modal">
-        <!-- Modal container -->
         <div class="w3-modal-content">
             <div class="w3-container">
-                <!-- Modal content -->
                 <span onclick="closeModal()" class="w3-button w3-display-topright">&times;</span>
-                <!-- Close button for the modal -->
                 <p><strong>First Name:</strong> <span id="modal-fname"></span></p>
                 <p><strong>Last Name:</strong> <span id="modal-lname"></span></p>
                 <p><strong>Email:</strong> <span id="modal-email"></span></p>
@@ -115,12 +87,12 @@
             </div>
         </div>
     </div>
+</div>
 
+<footer></footer>
 
 <script>
-    // Function to open the modal after checking if all required fields are filled in
     function openModal() {
-        // Get user input values from form fields
         const fname = document.getElementById("fname").value;
         const lname = document.getElementById("lname").value;
         const email = document.getElementById("email").value;
@@ -128,11 +100,9 @@
         const subject = document.getElementById("subject").value;
         const message = document.getElementById("message").value;
 
-        // Check if all required fields are filled in
         if (fname.trim() === "" || lname.trim() === "" || email.trim() === "" || rate.trim() === "" || subject.trim() === "" || message.trim() === "") {
             alert("Please fill in all required fields.");
         } else {
-            // Populate the modal content with user data
             document.getElementById("modal-fname").textContent = fname;
             document.getElementById("modal-lname").textContent = lname;
             document.getElementById("modal-email").textContent = email;
@@ -140,61 +110,41 @@
             document.getElementById("modal-message").textContent = message;
             document.getElementById("modal-rate").textContent = rate;
 
-            // Show the modal by setting its display property to 'block'
             document.getElementById('modal').style.display = 'block';
         }
     }
 
-    // Function to close the modal
     function closeModal() {
-        // Close the modal by setting its display property to 'none'
         document.getElementById('modal').style.display = 'none';
     }
 
-    // Function to handle the countdown timer and redirection
     function countdownRedirect() {
-        let countdown = 5; // Set the initial countdown time to 5 seconds
+        let countdown = 5;
         const countdownElement = document.getElementById('countdown');
 
         const countdownInterval = setInterval(function () {
-            countdown--; // Decrement the countdown value
-            countdownElement.textContent = countdown; // Update the countdown display
+            countdown--;
+            countdownElement.textContent = countdown;
 
             if (countdown <= 0) {
-                // Stop the countdown when it reaches or goes below 0
                 clearInterval(countdownInterval);
-                // Redirect to the home page (/home)
                 window.location.href = "/home";
             }
-            // Update the countdown every 1 second (1000 milliseconds)
         }, 1000);
     }
 
-    // Add an event listener for the DOMContentLoaded event
     document.addEventListener("DOMContentLoaded", function () {
-        // Get the form element by its ID (contact-form)
         const form = document.getElementById("contact-form");
 
-        // Add a submit event listener to the form
         form.addEventListener("submit", function (event) {
-            // Prevent the default form submission behavior
             event.preventDefault();
-
-            // Call the openModal() function to check and show the modal
             openModal();
-
-            // Reset the form fields after submission
             form.reset();
-
-            // Show the thank you message and start the countdown
             document.getElementById('thank-you-message').style.display = 'block';
-            // Call the countdownRedirect() function to start the countdown
             countdownRedirect();
         });
 
-        // Add an event listener for the 'hidden.bs.modal' event of an element with ID 'myModal'
         $('#modal').on('hidden.bs.modal', function () {
-            // Reset the modal info by clearing the content of specific elements
             document.getElementById("modal-fname").textContent = '';
             document.getElementById("modal-lname").textContent = '';
             document.getElementById("modal-email").textContent = '';
@@ -204,16 +154,6 @@
         });
     });
 </script>
-</div>
-
-<footer></footer>
-
-<script src = "./node_modules/jquery/dist/jquery.min.js"></script>
-<script src = "./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src = "./scripts/namespace.js"></script>
-<script src = "./scripts/contact.js"></script>
-<script src = "./scripts/user.js"></script>
-<script src = "./scripts/main.js"></script>
 
 </body>
 </html>
