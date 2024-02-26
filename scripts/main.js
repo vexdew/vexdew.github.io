@@ -3,136 +3,6 @@
 /* Student ID: 100852340, 100894383 */
 /* Date of Completion: 01-27-2024 */
 
-/**
- * Check for what is written in the search and change pages based on what is in.
- */
-function searchWebsite() {
-    let searchQuery = document.getElementById("searchBar");
-
-    switch (searchQuery.value.toLowerCase())
-    {
-        case "blog":
-            location.href = "/blog"
-            break;
-        case "careers":
-            location.href = "/careers"
-            break;
-        case "contact":
-            location.href = "/contact"
-            break;
-        case "home":
-            location.href = "/index"
-            break;
-        case "portfolio":
-            location.href = "/portfolio"
-            break;
-        case "privacy":
-            location.href = "/privacy"
-            break;
-        case "services":
-            location.href = "/services"
-            break;
-        case "team":
-            location.href = "/team"
-            break;
-        case "terms":
-            location.href = "/terms"
-            break;
-        default:
-            searchQuery.classList.add("bad-search")
-            searchQuery.value = "";
-            searchQuery.placeholder = "Page not found!";
-            break;
-    }
-}
-
-// Open the Modal
-function openModal() {
-    document.getElementById("myModal").style.display = "block";
-}
-
-// Close the Modal
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-}
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("demo");
-    let captionText = document.getElementById("caption");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    //slides[slideIndex-1].style.display = "block";
-    //dots[slideIndex-1].className += " active";
-    //captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-/**
- * Request information form the api
- */
-function fetchAPI() {
-    let period = $("#period-select");
-    period.value = '1';
-    let apiKey = "biQYeejT5hAGS3wWTLb98G98pl8tM1Yo";
-    let url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/${period.value}.json?api-key=${apiKey}`;
-    let xhr = new XMLHttpRequest();
-
-    xhr.open('GET', url, true);
-
-    xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            let response = JSON.parse(xhr.responseText);
-
-            if (response.success !== false) {
-                displayAPI(response);
-            }
-            else {
-                console.error("Failed to retrieve data");
-            }
-        }
-        else {
-            console.error("The request failed!");
-        }
-    };
-
-    xhr.send();
-}
-
-/**
- * What to display based on the api call
- */
-function displayAPI(response) {
-    let apiContainer = $("#apiContainer");
-    apiContainer.append(
-        `<h1>Article: </h1>
-            <ul>
-                <li>
-                    <a target="_blank" href="${response.results[0].url}">${response.results[0].title}</a>
-                </li>
-            </ul>`
-    );
-}
-
 // Function: closePopup
 // Description: Closes the popup by setting its display property to 'none'.
 // Parameters: None
@@ -215,12 +85,12 @@ function closePopup() {
             }
         });
 
-        function toggleVisibility(content, button) {
-            if (content) {
-                content.style.display = content.style.display === "none" ? "block" : "none";
-                button.innerText = content.style.display === "none" ? "Load More" : "Show Less";
-            }
+    function toggleVisibility(content, button) {
+        if (content) {
+            content.style.display = content.style.display === "none" ? "block" : "none";
+            button.innerText = content.style.display === "none" ? "Load More" : "Show Less";
         }
+    }
 
 
     });
@@ -311,7 +181,7 @@ function closePopup() {
                 return false;
             }
 
-            this.submit();
+             this.submit();
         });
     }
 
