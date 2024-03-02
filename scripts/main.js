@@ -138,7 +138,39 @@ function closePopup() {
     }
 
 
+    function searchWebsite() {
+        var searchTerm = document.getElementById("searchBar").value.trim().toLowerCase();
 
+        // Redirect based on the searchTerm
+        switch (searchTerm) {
+            case 'home':
+                window.location.href = '/home';
+                break;
+            case 'services':
+                window.location.href = '/services';
+                break;
+            case 'blog':
+                window.location.href = '/blog';
+                break;
+            case 'login':
+                window.location.href = '/login';
+                break;
+            case 'register':
+                window.location.href = '/register';
+                break;
+            case 'privacy':
+                window.location.href = '/privacy';
+                break;
+            case 'terms':
+                window.location.href = '/terms';
+                break;
+            case 'contact':
+                window.location.href = '/contact';
+                break;
+            default:
+                alert('Page not found.'); // Handle the case where the search term doesn't match
+        }
+    }
 
 
 
