@@ -337,22 +337,22 @@ function searchWebsite() {
      * @param error_message
      */
     function ValidateField(input_field_id, regular_expression, error_message){
+		let inputField = $(input_field_id);
         let messageArea = $("#messageArea");
         // let fullNamePattern =  /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/;
 
-        $(input_field_id).on("blur", function () {
-            let inputFieldText = $(this).val();
-            if(!regular_expression.test(inputFieldText)){
-                // fail validation
-                $(this).trigger("focus").trigger("select");
-                // "Please enter in a valid first and last name (ex First [Middle] Lastname)"
-                messageArea.addClass("alert alert-danger").text(error_message).show();
-            }else{
-                // pass validation
-                messageArea.removeClass("class").hide();
-            }
-
-        });
+		inputField.on("blur", function () {
+			let inputFieldText = $(this).val();
+			if (!regular_expression.test(inputFieldText)) {
+				// Fail validation
+				inputField.addClass("is-invalid");
+				messageArea.addClass("alert alert-danger").text(error_message).show();
+			} else {
+				// Pass validation
+				inputField.removeClass("is-invalid");
+				messageArea.removeClass("alert alert-danger").hide();
+			}
+		});
 
     }
 
