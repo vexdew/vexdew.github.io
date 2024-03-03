@@ -74,6 +74,12 @@ function searchWebsite() {
 		case 'login':
 			window.location.href = '/login';
 			break;
+		case 'events':
+			window.location.href = '/events';
+			break;
+		case 'gallery':
+			window.location.href = '/gallery';
+			break;
 		case 'register':
 			window.location.href = '/register';
 			break;
