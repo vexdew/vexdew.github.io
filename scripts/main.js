@@ -375,5 +375,40 @@ function searchWebsite() {
     window.addEventListener("load", Start)
 })()
 
+// Define the search functionality in a separate function
+function initializeSearch() {
+    var searchBar = document.getElementById("searchBar");
+    if (searchBar) { // Check if searchBar exists
+        searchBar.addEventListener("input", function() {
+            var inputVal = this.value.trim().toLowerCase();
+            var suggestions = document.getElementById("suggestions");
+
+            // Clear previous suggestions
+            suggestions.innerHTML = '';
+            suggestions.style.display = 'none';
+
+            if (inputVal.length > 0) {
+                var suggestedWord = '';
+                switch (inputVal[0]) {
+                    case 's':
+                        suggestedWord = 'services';
+                        break;
+                    // Add more cases as needed
+                }
+
+                if (suggestedWord.startsWith(inputVal)) {
+                    suggestions.style.display = 'block';
+                    var div = document.createElement('div');
+                    div.classList.add('suggestion-item');
+                    div.textContent = suggestedWord;
+                    div.onclick = function() {
+                        window.location.href = '/' + suggestedWord; // Redirect
+                    };
+                    suggestions.appendChild(div);
+                }
+            }
+        });
+    }
+}
 
 
