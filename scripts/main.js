@@ -32,21 +32,28 @@ $(document).ready(function() {
 
     // Function to display events on the page
     function displayEvents(events) {
-        var eventsContainer = $('<div id="events-container"></div>'); // Create events container
-        events.forEach(function(event) {
-            var eventItem = $('<div class="event-item">');
-            eventItem.append('<h2>' + event.title + '</h2>');
-            eventItem.append('<p>Date: ' + event.date + '</p>');
-            eventItem.append('<p>Location: ' + event.location + '</p>');
-            eventItem.append('<p>Description: ' + event.description + '</p>');
-            eventsContainer.append(eventItem);
-        });
-        $('body').append(eventsContainer); // Append events container to body
+        var eventsContainer = $('#events-container');
+        eventsContainer.empty(); // Clear existing content
+
+        if (events.length === 0) {
+            eventsContainer.html('<p>No upcoming events</p>'); // Display message if no events are available
+        } else {
+            // Iterate through events and append each event to the container
+            events.forEach(function(event) {
+                var eventItem = $('<div class="event-item">');
+                eventItem.append('<h2>' + event.title + '</h2>');
+                eventItem.append('<p>Date: ' + event.date + '</p>');
+                eventItem.append('<p>Location: ' + event.location + '</p>');
+                eventItem.append('<p>Description: ' + event.description + '</p>');
+                eventsContainer.append(eventItem);
+            });
+        }
     }
 
     // Call fetchEvents function to load event data when the page is loaded
     fetchEvents();
 });
+
 
 
 
