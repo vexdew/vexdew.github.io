@@ -14,21 +14,40 @@ function closePopup() {
     }
 }
 
-// Function to display events on the page
-function displayEvents(events) {
-    var eventsContainer = $('#events-container');
-    eventsContainer.empty(); // Clear existing content
+$(document).ready(function() {
+    // Function to fetch event data using AJAX
+    function fetchEvents() {
+        $.ajax({
+            url: 'events.json', // URL of the JSON file or external API endpoint
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                displayEvents(data); // Once data is fetched successfully, display events
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching events:', error);
+            }
+        });
+    }
 
-    // Loop through each event and create HTML elements to display them
-    events.forEach(function(event) {
-        var eventItem = $('<div class="event-item">');
-        eventItem.append('<h2>' + event.title + '</h2>');
-        eventItem.append('<p>Date: ' + event.date + '</p>');
-        eventItem.append('<p>Location: ' + event.location + '</p>');
-        eventItem.append('<p>Description: ' + event.description + '</p>');
-        eventsContainer.append(eventItem);
-    });
-}
+    // Function to display events on the page
+    function displayEvents(events) {
+        var eventsContainer = $('<div id="events-container"></div>'); // Create events container
+        events.forEach(function(event) {
+            var eventItem = $('<div class="event-item">');
+            eventItem.append('<h2>' + event.title + '</h2>');
+            eventItem.append('<p>Date: ' + event.date + '</p>');
+            eventItem.append('<p>Location: ' + event.location + '</p>');
+            eventItem.append('<p>Description: ' + event.description + '</p>');
+            eventsContainer.append(eventItem);
+        });
+        $('body').append(eventsContainer); // Append events container to body
+    }
+
+    // Call fetchEvents function to load event data when the page is loaded
+    fetchEvents();
+});
+
 
 
 function searchWebsite() {
