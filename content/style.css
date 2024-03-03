@@ -22,46 +22,26 @@
             padding: 20px;
             margin-bottom: 20px;
             cursor: pointer;
+            text-align: center; /* Center text */
         }
 
         .event-title {
             font-size: 24px;
             margin-bottom: 10px;
-            text-align: center; /* Center the text */
         }
 
-        .event-date {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 5px;
-            text-align: center; /* Center the text */
-        }
-
-        .event-location {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 5px;
-            text-align: center; /* Center the text */
-        }
-
+        .event-date,
+        .event-location,
         .event-description {
             font-size: 16px;
-            color: #777;
-            text-align: center; /* Center the text */
-        }
-
-        .event-icon {
-            font-size: 32px;
-            color: #007bff;
-            margin-right: 10px;
+            color: #555;
+            margin-bottom: 5px;
         }
 
         .event-image {
-            max-width: 50%; /* Shrink the picture size */
+            max-width: 50%; /* Shrink image size */
             height: auto;
-            margin: 0 auto; /* Center the picture */
-            display: block; /* Ensure image is centered */
-            margin-bottom: 10px;
+            margin-top: 10px; /* Add margin to top */
         }
 
         .modal {
@@ -81,8 +61,8 @@
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 60%; /* Adjust the width as needed */
-            max-width: 600px; /* Maximum width of the modal */
+            width: 60%; /* Adjust width as needed */
+            max-width: 600px; /* Maximum width of modal */
             border-radius: 10px;
             position: absolute;
             top: 50%;
