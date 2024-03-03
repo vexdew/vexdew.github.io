@@ -100,34 +100,35 @@
 <!-- Scripting Section -->
 <script>
     // Function to open the modal after checking if all required fields are filled in
-    function openModal() {
-        // Get user input values from form fields
-        const fname = document.getElementById("fname").value;
-        const lname = document.getElementById("lname").value;
-        const email = document.getElementById("email").value;
-        const subject = document.getElementById("subject").value;
-        const message = document.getElementById("message").value;
-        const rate = document.getElementById("rate").value;
+	function openModal() {
+		// Get user input values from form fields
+		const fname = document.getElementById("fname").value;
+		const lname = document.getElementById("lname").value;
+		const email = document.getElementById("email").value;
+		const subject = document.getElementById("subject").value;
+		const message = document.getElementById("message").value;
+		const rate = document.getElementById("rate").value;
 
-        // Check if all required fields are filled in
-        if (fname.trim() === "" || lname.trim() === "" || email.trim() === "" || subject.trim() === "" || message.trim() === "" || rate.trim() === "") {
-            alert("Please fill in all required fields.");
-        } else {
-            // Populate the modal content with user data
-            document.getElementById("modal-fname").textContent = fname;
-            document.getElementById("modal-lname").textContent = lname;
-            document.getElementById("modal-email").textContent = email;
-            document.getElementById("modal-subject").textContent = subject;
-            document.getElementById("modal-message").textContent = message;
-            document.getElementById("modal-rate").textContent = rate;
+		// Check if all required fields are filled in
+		if (fname.trim() === "" || lname.trim() === "" || email.trim() === "" || subject.trim() === "" || message.trim() === "" || rate.trim() === "") {
+			alert("Please fill in all required fields.");
+			return; // Exit the function if required fields are not filled
+		}
 
-            // Show the modal by setting its display property to 'block'
-            document.getElementById('modal').style.display = 'block';
+		// Populate the modal content with user data
+		document.getElementById("modal-fname").textContent = fname;
+		document.getElementById("modal-lname").textContent = lname;
+		document.getElementById("modal-email").textContent = email;
+		document.getElementById("modal-subject").textContent = subject;
+		document.getElementById("modal-message").textContent = message;
+		document.getElementById("modal-rate").textContent = rate;
 
-            // Start the countdown for redirection
-            startRedirectionCountdown();
-        }
-    }
+		// Show the modal by setting its display property to 'block'
+		document.getElementById('modal').style.display = 'block';
+
+		// Start the countdown for redirection
+		startRedirectionCountdown();
+	}
 
     // Function to close the modal
     function closeModal() {
