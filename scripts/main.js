@@ -14,6 +14,23 @@ function closePopup() {
     }
 }
 
+// Function to display events on the page
+function displayEvents(events) {
+    var eventsContainer = $('#events-container');
+    eventsContainer.empty(); // Clear existing content
+
+    // Loop through each event and create HTML elements to display them
+    events.forEach(function(event) {
+        var eventItem = $('<div class="event-item">');
+        eventItem.append('<h2>' + event.title + '</h2>');
+        eventItem.append('<p>Date: ' + event.date + '</p>');
+        eventItem.append('<p>Location: ' + event.location + '</p>');
+        eventItem.append('<p>Description: ' + event.description + '</p>');
+        eventsContainer.append(eventItem);
+    });
+}
+
+
 function searchWebsite() {
 	var searchTerm = document.getElementById("searchBar").value.trim().toLowerCase();
 

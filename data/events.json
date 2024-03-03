@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Community Picnic",
+        "date": "2024-05-15",
+        "location": "Central Park",
+        "description": "Join us for a fun-filled day of games, food, and music at Central Park!"
+    },
+    {
+        "title": "Volunteer Day",
+        "date": "2024-06-20",
+        "location": "Local Community Center",
+        "description": "Help us make a difference in our community by volunteering for various activities."
+    },
+    {
+        "title": "Fundraising Gala",
+        "date": "2024-07-25",
+        "location": "Grand Hotel Ballroom",
+        "description": "Support our community projects by attending our annual fundraising gala."
+    }
+]
