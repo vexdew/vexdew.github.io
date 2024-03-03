@@ -4,6 +4,15 @@
  /* Date of Completion: 01-27-2024 */
 
 
+.gallery-item {
+    margin-bottom: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
 /* For ...... (Services.html) */
 
  /* Comment for .header */
