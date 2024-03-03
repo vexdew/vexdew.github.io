@@ -16,7 +16,7 @@
 
 /* For Events Page */
 
-        .event-item {
+       .event-item {
             border: 1px solid #ccc;
             border-radius: 10px;
             padding: 20px;
@@ -27,23 +27,27 @@
         .event-title {
             font-size: 24px;
             margin-bottom: 10px;
+            text-align: center; /* Center the text */
         }
 
         .event-date {
             font-size: 16px;
             color: #555;
             margin-bottom: 5px;
+            text-align: center; /* Center the text */
         }
 
         .event-location {
             font-size: 16px;
             color: #555;
             margin-bottom: 5px;
+            text-align: center; /* Center the text */
         }
 
         .event-description {
             font-size: 16px;
             color: #777;
+            text-align: center; /* Center the text */
         }
 
         .event-icon {
@@ -53,8 +57,10 @@
         }
 
         .event-image {
-            max-width: 100%;
+            max-width: 50%; /* Shrink the picture size */
             height: auto;
+            margin: 0 auto; /* Center the picture */
+            display: block; /* Ensure image is centered */
             margin-bottom: 10px;
         }
 
