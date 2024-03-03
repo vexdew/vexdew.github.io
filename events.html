@@ -25,29 +25,30 @@
 
 <header></header>
 
-<div id="events-container">
     <!-- Events -->
-    <div class="event-item">
+    <div class="event-item" onclick="openModal('picnicModal')">
         <i class="fas fa-calendar-alt event-icon"></i>
-        <div>
-            <h2 class="event-title">Community Picnic</h2>
-            <p class="event-date">Date: 2024-05-15</p>
-            <p class="event-location">Location: Central Park</p>
-            <p class="event-description">Join us for a fun-filled day of games, food, and music at Central Park!</p>
-            <img src="picnic.jpg" alt="Community Picnic" class="event-image">
-        </div>
+        <h2 class="event-title">Community Picnic</h2>
+        <p class="event-date">Date: 2024-05-15</p>
+        <p class="event-location">Location: Central Park</p>
+        <p class="event-description">Join us for a fun-filled day of games, food, and music at Central Park!</p>
+        <img src="picnic.jpg" alt="Community Picnic" class="event-image">
     </div>
-    <div class="event-item">
-        <i class="fas fa-hands-helping event-icon"></i>
-        <div>
-            <h2 class="event-title">Volunteer Day</h2>
-            <p class="event-date">Date: 2024-06-20</p>
-            <p class="event-location">Location: Local Community Center</p>
-            <p class="event-description">Help us make a difference in our community by volunteering for various activities.</p>
-            <img src="volunteer.jpg" alt="Volunteer Day" class="event-image">
-        </div>
+    <!-- Add more events as needed -->
+</div>
+
+<!-- Modal for Community Picnic -->
+<div id="picnicModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('picnicModal')">&times;</span>
+        <h2 class="event-title">Community Picnic</h2>
+        <p class="event-date">Date: 2024-05-15</p>
+        <p class="event-location">Location: Central Park</p>
+        <p class="event-description">Join us for a fun-filled day of games, food, and music at Central Park!</p>
+        <img src="picnic.jpg" alt="Community Picnic" class="event-image">
     </div>
-    <div class="event-item">
+</div>
+<!--     <div class="event-item">
         <i class="fas fa-hand-holding-heart event-icon"></i>
         <div>
             <h2 class="event-title">Fundraising Gala</h2>
@@ -57,7 +58,7 @@
             <img src="gala.jpg" alt="Fundraising Gala" class="event-image">
         </div>
     </div>
-</div>
+</div> -->
 
 <footer></footer>
 
