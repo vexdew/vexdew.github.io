@@ -307,26 +307,49 @@ function searchWebsite() {
         return str.charAt(0).toUpperCase() + str.splice(1);
     }
 
-    function ContactFormValidation(){
-        //firstName
-        ValidateField("#firstName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/, "Please enter a valid First name.");
+function ContactFormValidation() {
+    let form = $("#contact-form");
 
-        //lastName
-        ValidateField("#lastName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/, "Please enter a valid Last name.");
+    form.submit(function(event) {
+        let invalidFields = [];
+        
+        // Validate firstName
+        if (!ValidateField("#firstName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/)) {
+            invalidFields.push("First Name");
+        }
 
-        //phoneNumber
-        ValidateField("#phoneNumber", /^(\+\d{1,3}[\s-.])?\(?\d{3}\)?[\s-.]?\d{3}[\s-.]\d{4}$/, "Please enter a valid phone number.");
+        // Validate lastName
+        if (!ValidateField("#lastName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/)) {
+            invalidFields.push("Last Name");
+        }
 
-        //emailAddress
-        ValidateField("#emailAddress", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,10}$/, "Please enter a valid email address.");
+        // Validate phoneNumber
+        if (!ValidateField("#phoneNumber", /^(\+\d{1,3}[\s-.])?\(?\d{3}\)?[\s-.]?\d{3}[\s-.]\d{4}$/)) {
+            invalidFields.push("Phone Number");
+        }
 
-        //password
-        ValidateField("#password", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Please enter a valid password that contains at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.");
+        // Validate emailAddress
+        if (!ValidateField("#emailAddress", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,10}$/)) {
+            invalidFields.push("Email Address");
+        }
 
-        //confirmPassword
-        ValidateField("#confirmPassword", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Please enter a valid confirm password that contains at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.");
+        // Validate password
+        if (!ValidateField("#password", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) {
+            invalidFields.push("Password");
+        }
 
-    }
+        // Validate confirmPassword
+        if (!ValidateField("#confirmPassword", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) {
+            invalidFields.push("Confirm Password");
+        }
+
+        // If there are invalid fields, display alert message
+        if (invalidFields.length > 0) {
+            event.preventDefault();
+            alert("Please correct the following fields:\n- " + invalidFields.join("\n- "));
+        }
+    });
+}
 
 
     /**
@@ -353,7 +376,13 @@ function searchWebsite() {
 				messageArea.removeClass("alert alert-danger").hide();
 			}
 		});
-
+		if (!regular_expression.test(inputFieldText)) {
+			inputField.addClass("is-invalid");
+			return false;
+		} else {
+			inputField.removeClass("is-invalid");
+			return true;
+		}
     }
 
 
