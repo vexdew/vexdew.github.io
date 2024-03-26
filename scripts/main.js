@@ -201,7 +201,7 @@ function searchWebsite() {
 
         $("#logout").on("click", function() {
             sessionStorage.clear();
-            location.href = "/home"; // Redirect to home page after logout
+            location.href = "/views/content/home"; // Redirect to home page after logout
             // $("#welcomeAlert").hide();
             // sessionStorage.clear();
         });
