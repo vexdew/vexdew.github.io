@@ -14,6 +14,75 @@ function closePopup() {
     }
 }
 
+<<<<<<< HEAD
+// document.getElementById("searchBar").addEventListener("input", function() {
+//     var inputVal = this.value.trim().toLowerCase();
+//     var suggestions = document.getElementById("suggestions");
+//
+//     // Clear previous suggestions
+//     suggestions.innerHTML = '';
+//     suggestions.style.display = 'none';
+//
+//     if (inputVal.length > 0) {
+//         // Mockup suggestion logic - replace with actual logic as needed
+//         var suggestedWord = '';
+//         switch (inputVal[0]) {
+//             case 's':
+//                 suggestedWord = 'services';
+//                 break;
+//             // Add more cases as needed
+//         }
+//
+//         if (suggestedWord.startsWith(inputVal)) {
+//             suggestions.style.display = 'block';
+//             var div = document.createElement('div');
+//             div.classList.add('suggestion-item');
+//             div.textContent = suggestedWord;
+//             div.onclick = function() {
+//                 window.location.href = '/' + suggestedWord; // Redirect
+//             };
+//             suggestions.appendChild(div);
+//         }
+//     }
+// });
+
+
+function searchWebsite() {
+    var searchTerm = document.getElementById("searchBar").value.trim().toLowerCase();
+
+    // Redirect based on the searchTerm
+    switch (searchTerm) {
+        case 'home':
+            window.location.href = '/home';
+            break;
+        case 'services':
+            window.location.href = '/services';
+            break;
+        case 'blog':
+            window.location.href = '/blog';
+            break;
+        case 'login':
+            window.location.href = '/login';
+            break;
+        case 'register':
+            window.location.href = '/register';
+            break;
+        case 'privacy':
+            window.location.href = '/privacy';
+            break;
+        case 'terms':
+            window.location.href = '/terms';
+            break;
+        case 'contact':
+            window.location.href = '/contact';
+            break;
+        case 'statistics':
+            window.location.href = '/statistics';
+            break;
+        default:
+            alert('Page not found.'); // Handle the case where the search term doesn't match
+    }
+=======
 $(document).ready(function() {
     // Function to fetch event data using AJAX
     function fetchEvents() {
@@ -95,6 +164,7 @@ function searchWebsite() {
 		default:
 			alert('Page not found.'); // Handle the case where the search term doesn't match
 	}
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
 }
 
 (function() {
@@ -193,7 +263,11 @@ function searchWebsite() {
     }
 
     function LoadContent(){
+<<<<<<< HEAD
+        let page_name = route.ActiveLink;
+=======
         let page_name = router.ActiveLink;
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
         let callback = ActiveLinkCallback();
 
         $.get(`./${page_name}.html`, function(html_data){
@@ -327,12 +401,25 @@ function searchWebsite() {
         ContactFormValidation();
     }
 
+<<<<<<< HEAD
+    function DisplayStatisticsPage()
+    {
+        console.log("Called DisplayStatisticsPage");
+
+    }
+
+=======
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
     function Display404Page(){
         console.log("Called Display404Page()...")
     }
 
     function ActiveLinkCallback(){
+<<<<<<< HEAD
+        switch(route.ActiveLink){
+=======
         switch(router.ActiveLink){
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
             case "home": return DisplayHomePage;
             // case "about": return DisplayAboutPage;
             // case "services": return DisplayServicePage;
@@ -344,10 +431,18 @@ function searchWebsite() {
             case "privacy": return DisplayPrivacyPage;
             case "terms": return DisplayTermsPage;
             case "contact": return DisplayContactPage;
+<<<<<<< HEAD
+            case "statistics": return DisplayStatisticsPage;
+            // case "edit": return DisplayEditPage;
+            case "404": return Display404Page;
+            default:
+                console.error("ERROR: callback function does not exist " + route.ActiveLink);
+=======
             // case "edit": return DisplayEditPage;
             case "404": return Display404Page;
             default:
                 console.error("ERROR: callback function does not exist " + router.ActiveLink);
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
                 break;
         }
     }
@@ -356,6 +451,28 @@ function searchWebsite() {
         return str.charAt(0).toUpperCase() + str.splice(1);
     }
 
+<<<<<<< HEAD
+    function ContactFormValidation(){
+        //firstName
+        ValidateField("#firstName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/, "Please enter a valid First name.");
+
+        //lastName
+        ValidateField("#lastName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/, "Please enter a valid Last name.");
+
+        //phoneNumber
+        ValidateField("#phoneNumber", /^(\+\d{1,3}[\s-.])?\(?\d{3}\)?[\s-.]?\d{3}[\s-.]\d{4}$/, "Please enter a valid phone number.");
+
+        //emailAddress
+        ValidateField("#emailAddress", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,10}$/, "Please enter a valid email address.");
+
+        //password
+        ValidateField("#password", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Please enter a valid password that contains at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.");
+
+        //confirmPassword
+        ValidateField("#confirmPassword", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Please enter a valid confirm password that contains at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.");
+
+    }
+=======
 function ContactFormValidation() {
     let form = $("#contact-form");
 
@@ -399,6 +516,7 @@ function ContactFormValidation() {
         }
     });
 }
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
 
 
     /**
@@ -409,6 +527,25 @@ function ContactFormValidation() {
      * @param error_message
      */
     function ValidateField(input_field_id, regular_expression, error_message){
+<<<<<<< HEAD
+        let messageArea = $("#messageArea");
+        // let fullNamePattern =  /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/;
+
+        $(input_field_id).on("blur", function () {
+            let inputFieldText = $(this).val();
+            if(!regular_expression.test(inputFieldText)){
+                // fail validation
+                $(this).trigger("focus").trigger("select");
+                // "Please enter in a valid first and last name (ex First [Middle] Lastname)"
+                messageArea.addClass("alert alert-danger").text(error_message).show();
+            }else{
+                // pass validation
+                messageArea.removeClass("class").hide();
+            }
+
+        });
+
+=======
 		let inputField = $(input_field_id);
         let messageArea = $("#messageArea");
         // let fullNamePattern =  /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/;
@@ -432,12 +569,17 @@ function ContactFormValidation() {
 			inputField.removeClass("is-invalid");
 			return true;
 		}
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
     }
 
 
     function Start() {
         console.log("App Started...");
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
         // Fetch the header HTML content
         $.get("./views/components/header.html", function(html_data) {
             // Pass the HTML data to the LoadHeader function
