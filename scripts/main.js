@@ -188,6 +188,7 @@ function searchWebsite() {
         });
     }
 
+
     function CheckLogin() {
         let user = sessionStorage.getItem("user");
         let userDisplayName = sessionStorage.getItem("userDisplayName");
@@ -315,8 +316,7 @@ function searchWebsite() {
 
     function DisplayStatisticsPage()
     {
-        console.log("Called DisplayStatisticsPage");
-
+        console.log("Called DisplayStatisticsPage...")
     }
 
     function Display404Page(){
@@ -324,7 +324,7 @@ function searchWebsite() {
     }
 
     function ActiveLinkCallback(){
-        switch(router.ActiveLink){
+        switch(route.ActiveLink){
             case "home": return DisplayHomePage;
             // case "about": return DisplayAboutPage;
             // case "services": return DisplayServicePage;
@@ -340,7 +340,7 @@ function searchWebsite() {
             // case "edit": return DisplayEditPage;
             case "404": return Display404Page;
             default:
-                console.error("ERROR: callback function does not exist " + router.ActiveLink);
+                console.error("ERROR: callback function does not exist " + route.ActiveLink);
                 break;
         }
     }
