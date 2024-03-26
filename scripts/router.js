@@ -72,7 +72,7 @@ let router = new core.Router();
 // Add default routers to our routing table
 router.AddTable( [
     "/",
-    "/views/content/home",
+    "/home",
     "/portfolio",
     "/services",
     "/team",
