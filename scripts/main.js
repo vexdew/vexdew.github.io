@@ -52,7 +52,7 @@ function searchWebsite() {
     // Redirect based on the searchTerm
     switch (searchTerm) {
         case 'home':
-            window.location.href = '/home';
+            window.location.href = '/views/content/home';
             break;
         case 'services':
             window.location.href = '/services';
@@ -179,10 +179,10 @@ function searchWebsite() {
     }
 
     function LoadContent(){
-        let page_name = route.ActiveLink;
+        let page_name = router.ActiveLink;
         let callback = ActiveLinkCallback();
 
-        $.get(`./${page_name}.html`, function(html_data){
+        $.get(`./views/content/${page_name}.html`, function(html_data){
             $("main").html(html_data);
             callback();
         });
@@ -324,7 +324,7 @@ function searchWebsite() {
     }
 
     function ActiveLinkCallback(){
-        switch(route.ActiveLink){
+        switch(router.ActiveLink){
             case "home": return DisplayHomePage;
             // case "about": return DisplayAboutPage;
             // case "services": return DisplayServicePage;
@@ -340,7 +340,7 @@ function searchWebsite() {
             // case "edit": return DisplayEditPage;
             case "404": return Display404Page;
             default:
-                console.error("ERROR: callback function does not exist " + route.ActiveLink);
+                console.error("ERROR: callback function does not exist " + router.ActiveLink);
                 break;
         }
     }

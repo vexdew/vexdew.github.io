@@ -67,10 +67,10 @@
 })(core || (core = {}));
 
 // instantiate a new router
-let route = new core.Router();
+let router = new core.Router();
 
 // Add default routers to our routing table
-route.AddTable( [
+router.AddTable( [
     "/",
     "/home",
     "/portfolio",
@@ -89,6 +89,6 @@ route.AddTable( [
 
 let route = location.pathname;
 
-route.ActiveLink = (route.Find(route) > -1)
+router.ActiveLink = (router.Find(route) > -1)
                   ? ( (route) === "/") ? "home" : route.substring(1)
                   : ("404");
