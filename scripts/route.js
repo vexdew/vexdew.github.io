@@ -1,14 +1,5 @@
 "use strict";
 
-function loadPageContent(page) {
-    $("#main-content").load(`./views/content/${page}.html`, function(response, status, xhr) {
-        if (status == "error") {
-            $("#main-content").html("<p>Sorry, there was an error loading the page.</p>");
-            // Handle 404 or other errors if necessary
-        }
-    });
-}
-
 (function () {
     class Router {
         constructor() {
