@@ -52,7 +52,7 @@ function searchWebsite() {
     // Redirect based on the searchTerm
     switch (searchTerm) {
         case 'home':
-            window.location.href = '/home';
+            window.location.href = '/views/content/home';
             break;
         case 'services':
             window.location.href = '/services';
