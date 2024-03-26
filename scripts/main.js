@@ -14,7 +14,6 @@ function closePopup() {
     }
 }
 
-<<<<<<< HEAD
 // document.getElementById("searchBar").addEventListener("input", function() {
 //     var inputVal = this.value.trim().toLowerCase();
 //     var suggestions = document.getElementById("suggestions");
@@ -82,89 +81,6 @@ function searchWebsite() {
         default:
             alert('Page not found.'); // Handle the case where the search term doesn't match
     }
-=======
-$(document).ready(function() {
-    // Function to fetch event data using AJAX
-    function fetchEvents() {
-        $.ajax({
-            url: 'events.json', // URL of the JSON file or external API endpoint
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                displayEvents(data); // Once data is fetched successfully, display events
-            },
-            error: function(xhr, status, error) {
-                console.error('Error fetching events:', error);
-            }
-        });
-    }
-
-    // Function to display events on the page
-    function displayEvents(events) {
-        var eventsContainer = $('#events-container');
-        eventsContainer.empty(); // Clear existing content
-
-        if (events.length === 0) {
-            eventsContainer.html('<p>No upcoming events</p>'); // Display message if no events are available
-        } else {
-            // Iterate through events and append each event to the container
-            events.forEach(function(event) {
-                var eventItem = $('<div class="event-item">');
-                eventItem.append('<h2>' + event.title + '</h2>');
-                eventItem.append('<p>Date: ' + event.date + '</p>');
-                eventItem.append('<p>Location: ' + event.location + '</p>');
-                eventItem.append('<p>Description: ' + event.description + '</p>');
-                eventsContainer.append(eventItem);
-            });
-        }
-    }
-
-    // Call fetchEvents function to load event data when the page is loaded
-    fetchEvents();
-});
-
-
-
-
-function searchWebsite() {
-	var searchTerm = document.getElementById("searchBar").value.trim().toLowerCase();
-
-	// Redirect based on the searchTerm
-	switch (searchTerm) {
-		case 'home':
-			window.location.href = '/home';
-			break;
-		case 'services':
-			window.location.href = '/services';
-			break;
-		case 'blog':
-			window.location.href = '/blog';
-			break;
-		case 'login':
-			window.location.href = '/login';
-			break;
-		case 'events':
-			window.location.href = '/events';
-			break;
-		case 'gallery':
-			window.location.href = '/gallery';
-			break;
-		case 'register':
-			window.location.href = '/register';
-			break;
-		case 'privacy':
-			window.location.href = '/privacy';
-			break;
-		case 'terms':
-			window.location.href = '/terms';
-			break;
-		case 'contact':
-			window.location.href = '/contact';
-			break;
-		default:
-			alert('Page not found.'); // Handle the case where the search term doesn't match
-	}
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
 }
 
 (function() {
@@ -263,11 +179,7 @@ function searchWebsite() {
     }
 
     function LoadContent(){
-<<<<<<< HEAD
         let page_name = route.ActiveLink;
-=======
-        let page_name = router.ActiveLink;
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
         let callback = ActiveLinkCallback();
 
         $.get(`./${page_name}.html`, function(html_data){
@@ -401,25 +313,18 @@ function searchWebsite() {
         ContactFormValidation();
     }
 
-<<<<<<< HEAD
     function DisplayStatisticsPage()
     {
         console.log("Called DisplayStatisticsPage");
 
     }
 
-=======
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
     function Display404Page(){
         console.log("Called Display404Page()...")
     }
 
     function ActiveLinkCallback(){
-<<<<<<< HEAD
         switch(route.ActiveLink){
-=======
-        switch(router.ActiveLink){
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
             case "home": return DisplayHomePage;
             // case "about": return DisplayAboutPage;
             // case "services": return DisplayServicePage;
@@ -431,18 +336,11 @@ function searchWebsite() {
             case "privacy": return DisplayPrivacyPage;
             case "terms": return DisplayTermsPage;
             case "contact": return DisplayContactPage;
-<<<<<<< HEAD
             case "statistics": return DisplayStatisticsPage;
             // case "edit": return DisplayEditPage;
             case "404": return Display404Page;
             default:
                 console.error("ERROR: callback function does not exist " + route.ActiveLink);
-=======
-            // case "edit": return DisplayEditPage;
-            case "404": return Display404Page;
-            default:
-                console.error("ERROR: callback function does not exist " + router.ActiveLink);
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
                 break;
         }
     }
@@ -451,7 +349,6 @@ function searchWebsite() {
         return str.charAt(0).toUpperCase() + str.splice(1);
     }
 
-<<<<<<< HEAD
     function ContactFormValidation(){
         //firstName
         ValidateField("#firstName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/, "Please enter a valid First name.");
@@ -472,51 +369,6 @@ function searchWebsite() {
         ValidateField("#confirmPassword", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Please enter a valid confirm password that contains at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.");
 
     }
-=======
-function ContactFormValidation() {
-    let form = $("#contact-form");
-
-    form.submit(function(event) {
-        let invalidFields = [];
-        
-        // Validate firstName
-        if (!ValidateField("#firstName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/)) {
-            invalidFields.push("First Name");
-        }
-
-        // Validate lastName
-        if (!ValidateField("#lastName", /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/)) {
-            invalidFields.push("Last Name");
-        }
-
-        // Validate phoneNumber
-        if (!ValidateField("#phoneNumber", /^(\+\d{1,3}[\s-.])?\(?\d{3}\)?[\s-.]?\d{3}[\s-.]\d{4}$/)) {
-            invalidFields.push("Phone Number");
-        }
-
-        // Validate emailAddress
-        if (!ValidateField("#emailAddress", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,10}$/)) {
-            invalidFields.push("Email Address");
-        }
-
-        // Validate password
-        if (!ValidateField("#password", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) {
-            invalidFields.push("Password");
-        }
-
-        // Validate confirmPassword
-        if (!ValidateField("#confirmPassword", /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) {
-            invalidFields.push("Confirm Password");
-        }
-
-        // If there are invalid fields, display alert message
-        if (invalidFields.length > 0) {
-            event.preventDefault();
-            alert("Please correct the following fields:\n- " + invalidFields.join("\n- "));
-        }
-    });
-}
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
 
 
     /**
@@ -527,7 +379,6 @@ function ContactFormValidation() {
      * @param error_message
      */
     function ValidateField(input_field_id, regular_expression, error_message){
-<<<<<<< HEAD
         let messageArea = $("#messageArea");
         // let fullNamePattern =  /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/;
 
@@ -545,41 +396,13 @@ function ContactFormValidation() {
 
         });
 
-=======
-		let inputField = $(input_field_id);
-        let messageArea = $("#messageArea");
-        // let fullNamePattern =  /^([A-Z][a-z]{1,3}\.?\s)?([A-Z][a-z]+)+([\s,-]([A-z][a-z]+))*$/;
-
-		inputField.on("blur", function () {
-			let inputFieldText = $(this).val();
-			if (!regular_expression.test(inputFieldText)) {
-				// Fail validation
-				inputField.addClass("is-invalid");
-				messageArea.addClass("alert alert-danger").text(error_message).show();
-			} else {
-				// Pass validation
-				inputField.removeClass("is-invalid");
-				messageArea.removeClass("alert alert-danger").hide();
-			}
-		});
-		if (!regular_expression.test(inputFieldText)) {
-			inputField.addClass("is-invalid");
-			return false;
-		} else {
-			inputField.removeClass("is-invalid");
-			return true;
-		}
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
     }
 
 
     function Start() {
         console.log("App Started...");
 
-<<<<<<< HEAD
 
-=======
->>>>>>> a8a5f2f82dc20da5093417b728fa4c747e0e0ea1
         // Fetch the header HTML content
         $.get("./views/components/header.html", function(html_data) {
             // Pass the HTML data to the LoadHeader function
