@@ -28,12 +28,38 @@
 <div class="container">
     <div class="header">
         <h2>Statistics</h2>
-    </div>
-	
-    <div id="chartContainer" style="width: 600px; height: 400px;">
-        <canvas id="visitorStatsChart"></canvas>
+		<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     </div>
 </div>
+
+<script>
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
 
 <footer class="footer">
     <a href="/privacy">Privacy</a>
