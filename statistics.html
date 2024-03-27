@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
     <!-- Link to the FontAwesome CSS stylesheet -->
     <link rel="stylesheet" href="./content/style.css">
-    <!-- Link to a custom CSS file for additional styling -->
+    <!-- Link to Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -28,6 +28,10 @@
 <div class="container">
     <div class="header">
         <h2>Statistics</h2>
+    </div>
+	
+    <div id="chartContainer" style="width: 600px; height: 400px;">
+        <canvas id="visitorStatsChart"></canvas>
     </div>
 </div>
 
@@ -40,6 +44,7 @@
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./scripts/main.js"></script>
+<script src="./scripts/statistics.ts"></script>
 
 </body>
 </html>
