@@ -182,7 +182,7 @@ function searchWebsite() {
         let page_name = router.ActiveLink;
         let callback = ActiveLinkCallback();
 
-        $.get(`../../${page_name}.html`, function(html_data){
+        $.get(`./${page_name}.html`, function(html_data){
             $("main").html(html_data);
             callback();
         });
@@ -201,7 +201,7 @@ function searchWebsite() {
 
         $("#logout").on("click", function() {
             sessionStorage.clear();
-            location.href = "/views/content/home"; // Redirect to home page after logout
+            location.href = "/home"; // Redirect to home page after logout
             // $("#welcomeAlert").hide();
             // sessionStorage.clear();
         });
