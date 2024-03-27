@@ -7,11 +7,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Visitor Statistics</title>
+    <title>Statistics</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="./content/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom styling to reduce spacing */
+        .container-custom {
+            padding-top: 20px; /* Adjust the top padding as needed */
+            padding-bottom: 20px; /* Adjust the bottom padding as needed */
+        }
+        .header-custom {
+            margin-bottom: 10px; /* Reduce margin below the header */
+        }
+		.chart-size {
+			width: 100% !important; /* Makes the chart width responsive */
+			max-width: 500px; /* Maximum chart width */
+			aspect-ratio: 1.6; /* Sets the width to height ratio, adjust as needed */
+			margin: auto; /* Centers the chart if it's smaller than the parent container */
+		}
+    </style>
 </head>
 <body>
 
@@ -19,7 +35,7 @@
 
 <div class="container container-custom">
     <div class="header header-custom">
-        <h2>Statistics</h2>
+        <h2>Visitor Statistics</h2>
     </div>
 	
 	<canvas id="StatisticsChart" class="chart-size"></canvas>
@@ -47,7 +63,7 @@
 	});
 	</script>
 	<br/><br/>
-	
+	<br/><br/>
 </div>
 
 <footer class="footer">
