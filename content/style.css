@@ -14,6 +14,12 @@
 
  /* Comment for .container */
  .container {
+	 display: flex;
+	 flex-direction: column;
+     align: center;
+     justify-content: center;
+     height: 100vh;
+     font-family: Arial, sans-serif;
      margin-top: 50px; /* Adds top margin */
  }
 
