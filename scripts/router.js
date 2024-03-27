@@ -84,7 +84,8 @@ router.AddTable( [
     "/contact",
     "/events",
     "/gallery",
-    "/statistics"
+    "/statistics",
+	"/event_planning"
 ])
 
 let route = location.pathname;

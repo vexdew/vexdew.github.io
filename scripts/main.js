@@ -318,6 +318,11 @@ function searchWebsite() {
     {
         console.log("Called DisplayStatisticsPage...")
     }
+	
+	function DisplayEventPlanningPage()
+    {
+        console.log("Called DisplayStatisticsPage...")
+    }
 
     function Display404Page(){
         console.log("Called Display404Page()...")
@@ -337,6 +342,7 @@ function searchWebsite() {
             case "terms": return DisplayTermsPage;
             case "contact": return DisplayContactPage;
             case "statistics": return DisplayStatisticsPage;
+			case "event_planning": return DisplayEventPlanningPage;
             // case "edit": return DisplayEditPage;
             case "404": return Display404Page;
             default:
