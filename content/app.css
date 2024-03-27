@@ -56,10 +56,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust the height as necessary */
+  height: 75vh; /* Adjust the height as necessary */
 }
 
 video {
-  width: 100%; /* Adjust the width as necessary, or set max-width */
+  width: 75%; /* Adjust the width as necessary, or set max-width */
   height: auto; /* This will keep the aspect ratio of the video */
 }
