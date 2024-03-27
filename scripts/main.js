@@ -182,7 +182,7 @@ function searchWebsite() {
         let page_name = router.ActiveLink;
         let callback = ActiveLinkCallback();
 
-        $.get(`../../../${page_name}.html`, function(html_data){
+        $.get(`../../${page_name}.html`, function(html_data){
             $("main").html(html_data);
             callback();
         });

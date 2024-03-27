@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="../../content/style.css">
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../scripts/namespace.js"></script>
+    <script src="../../scripts/router.js"></script>
+    <script src="../../scripts/user.js"></script>
+    <script src="../../scripts/contact.js"></script>
+    <script src="../../scripts/main.js"></script>
+
+    <!-- Add the W3.CSS stylesheet -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+<header></header>
+
+<!-- Thank You Message with Countdown Timer -->
+<div id="thank-you-message" style="display: none; text-align: center;">
+    <!-- Hidden thank-you message -->
+    <p>Thank you for submitting your information. You will be redirected to the home page in <span id="countdown">5</span> seconds.</p>
+</div>
+
+<div class="container">
+    <div class="header">
+        <h2>Contact</h2><br/>
+    </div>
+    <div class="container form-container">
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your first name..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="rate">Service Satisfaction:</label>
+                <select id="rate" name="rate" required>
+                    <option value="">Choose your option</option>
+                    <option value="5">Very Dissatisfied</option>
+                    <option value="4">Dissatisfied</option>
+                    <option value="3">Neutral</option>
+                    <option value="2">Satisfied</option>
+                    <option value="1">Very Satisfied</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Your subject..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message goes here..." style="height:200px" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit" class="w3-button w3-black">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="w3-container">
+    <div id="modal" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick="closeModal()" class="w3-button w3-display-topright">&times;</span>
+                <p><strong>First Name:</strong> <span id="modal-fname"></span></p>
+                <p><strong>Last Name:</strong> <span id="modal-lname"></span></p>
+                <p><strong>Email:</strong> <span id="modal-email"></span></p>
+                <p><strong>Service Satisfaction:</strong> <span id="modal-rate"></span></p>
+                <p><strong>Subject:</strong> <span id="modal-subject"></span></p>
+                <p><strong>Message:</strong> <span id="modal-message"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer></footer>
+
+<!-- Scripting Section -->
+<script>
+    // Function to open the modal after checking if all required fields are filled in
+    function openModal() {
+        // Get user input values from form fields
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+        const rate = document.getElementById("rate").value;
+
+        // Check if all required fields are filled in
+        if (fname.trim() === "" || lname.trim() === "" || email.trim() === "" || subject.trim() === "" || message.trim() === "" || rate.trim() === "") {
+            alert("Please fill in all required fields.");
+        } else {
+            // Populate the modal content with user data
+            document.getElementById("modal-fname").textContent = fname;
+            document.getElementById("modal-lname").textContent = lname;
+            document.getElementById("modal-email").textContent = email;
+            document.getElementById("modal-subject").textContent = subject;
+            document.getElementById("modal-message").textContent = message;
+            document.getElementById("modal-rate").textContent = rate;
+
+            // Show the modal by setting its display property to 'block'
+            document.getElementById('modal').style.display = 'block';
+
+            // Start the countdown for redirection
+            startRedirectionCountdown();
+        }
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        // Close the modal by setting its display property to 'none'
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    // Function to handle the countdown timer and redirection
+    function startRedirectionCountdown() {
+        let countdown = 5; // Set the initial countdown time to 5 seconds
+        const countdownElement = document.getElementById('countdown');
+
+        // Update the countdown display initially
+        countdownElement.textContent = countdown;
+
+        // Set up the countdown timer
+        const countdownInterval = setInterval(function () {
+            countdown--; // Decrement the countdown value
+            countdownElement.textContent = countdown; // Update the countdown display
+
+            if (countdown <= 0) {
+                // Stop the countdown when it reaches or goes below 0
+                clearInterval(countdownInterval);
+                // Redirect to the home page (/home)
+                window.location.href = "/home";
+            }
+        }, 1000); // Update the countdown every 1 second (1000 milliseconds)
+    }
+
+    // Add an event listener for the DOMContentLoaded event
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the form element by its ID (contact-form)
+        const form = document.getElementById("contact-form");
+
+        // Add a submit event listener to the form
+        form.addEventListener("submit", function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Call the openModal() function to check and show the modal
+            openModal();
+
+            // Reset the form fields after submission
+            form.reset();
+        });
+
+        // Add an event listener for the 'hidden.bs.modal' event of an element with ID 'myModal'
+        $('#modal').on('hidden.bs.modal', function () {
+            // Reset the modal info by clearing the content of specific elements
+            document.getElementById("modal-fname").textContent = '';
+            document.getElementById("modal-lname").textContent = '';
+            document.getElementById("modal-email").textContent = '';
+            document.getElementById("modal-subject").textContent = '';
+            document.getElementById("modal-message").textContent = '';
+            document.getElementById("modal-rate").textContent = '';
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

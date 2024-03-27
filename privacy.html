@@ -1,0 +1,160 @@
+<!-- privacy.html-->
+<!-- Authors: Christopher Gugelmeier, Andrei Koshelev -->
+<!-- Student ID: 100852340, 100894383-->
+<!-- Date of Completion: 01-27-2024-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Set character encoding to UTF-8 for proper text rendering -->
+    <title>Home</title>
+    <!-- Set the title of the webpage to "Home" -->
+
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Link to the Bootstrap CSS stylesheet -->
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <!-- Link to the FontAwesome CSS stylesheet -->
+    <link rel="stylesheet" href="../../content/style.css">
+    <!-- Link to a custom CSS file for additional styling -->
+</head>
+<body>
+
+<header></header>
+
+<div class="container">
+    <!-- Container for content -->
+    <div class="header">
+        <!-- Header section -->
+        <h2>Privacy Policy</h2><br/>
+        <!-- Title: Privacy Policy -->
+    </div>
+
+    <p>This Privacy Policy outlines how Harmony Hub collects, uses, and protects your personal information when you use
+        our services. Your privacy is important to us, and we are committed to ensuring the confidentiality and security
+        of your data.
+    </p>
+    <!-- Introduction paragraph explaining the purpose of the Privacy Policy -->
+
+    <h4>1. Information We Collect</h4>
+    <!-- Section heading: Information We Collect -->
+    <p>We collect the following types of information:</p>
+    <!-- Explanation of information collection -->
+    <ul>
+        <!-- Start of a list -->
+        <li><strong>Personal Information:</strong> This includes your name, email address, and other information you provide when signing up or using our services.</li>
+        <!-- List item 1: Explanation of personal information -->
+        <li><strong>Usage Data:</strong> We may collect information about how you interact with our website, including IP addresses, browser types, and access times.</li>
+        <!-- List item 2: Explanation of usage data -->
+    </ul>
+    <!-- End of the list -->
+
+    <h4>2. How We Use Your Information</h4>
+    <!-- Section heading: How We Use Your Information -->
+    <p>We use the collected information for the following purposes:</p>
+    <!-- Explanation of information usage -->
+    <ul>
+        <!-- Start of a list -->
+        <li>To provide and maintain our services.</li>
+        <!-- List item 1: Purpose of providing and maintaining services -->
+        <li>To improve our website and services based on user feedback and usage patterns.</li>
+        <!-- List item 2: Purpose of improving the website and services -->
+        <li>To send periodic emails and updates regarding our services.</li>
+        <!-- List item 3: Purpose of sending emails and updates -->
+    </ul>
+    <!-- End of the list -->
+
+    <h4>3. User Rights</h4>
+    <!-- Section heading: User Rights -->
+    <p>Your right to privacy is acknowledged and respected by Harmony Hub. It is within your rights to:</p>
+    <!-- Explanation of user rights -->
+    <ul>
+        <!-- Start of a list -->
+        <li> <b>Obtain, Modify, or Remove Your Personal Data:</b>
+            <!-- List item 1: Explanation of the right to obtain, modify, or remove personal data -->
+            By navigating to your account settings or getting in touch with our support staff, you can access,
+            amend, or remove your personal data.
+        </li>
+        <li> <b>Communications Opt-Out:</b>
+            <!-- List item 2: Explanation of the right to opt-out of communications -->
+            You can opt-out of receiving communications from Harmony Hub by following the instructions included in the
+            communication if you would like to stop receiving them.
+        </li>
+        <li> <b>Cookie Control:</b>
+            <!-- List item 3: Explanation of the right to control cookies -->
+            Through the settings of your browser, you may manage cookies. Please be aware that using the Harmony Hub web
+            portal may not function as intended if cookies are disabled.
+        </li>
+    </ul>
+    <!-- End of the list -->
+
+    <h4>4. Information Security</h4>
+    <!-- Section heading: Information Security -->
+    <p>We take appropriate measures to secure your personal information and protect it from unauthorized access or
+        disclosure. However, no data transmission over the internet can be guaranteed to be 100% secure.
+        As a result, while we strive to protect your personal information, we cannot ensure or warrant the
+        security of any information you transmit to us.
+    </p>
+    <!-- Explanation of information security -->
+
+    <h4>5. Cookies</h4>
+    <!-- Section heading: Cookies -->
+    <p>We use cookies to enhance your experience on our website. Cookies are small text files stored on your device
+        that help us track and analyze user behavior. You can choose to disable cookies through your browser
+        settings, but this may affect certain functionalities of the site.
+    </p>
+    <!-- Explanation of the use of cookies -->
+
+    <h4>6. Third-Party Links</h4>
+    <!-- Section heading: Third-Party Links -->
+    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or
+        content of these external sites. We encourage you to review the privacy policies of these websites before
+        providing any personal information.
+    </p>
+    <!-- Explanation of third-party links -->
+
+    <h4>7. Changes to the Privacy Policy</h4>
+    <!-- Section heading: Changes to the Privacy Policy -->
+    <p>Harmony Hub reserves the right to update or modify this Privacy Policy at any time. Any changes will be
+        effective immediately upon posting on our website. We recommend checking this page periodically for updates.
+    </p>
+    <!-- Explanation of changes to the Privacy Policy -->
+
+    <h4>8. Contact Us</h4>
+    <!-- Section heading: Contact Us -->
+    <p>If you have any questions or concerns about our Privacy Policy, please contact us at
+        <a href="mailto:privacy@harmonyhub.com">privacy@harmonyhub.com</a>.
+    </p>
+    <!-- Explanation of how to contact Harmony Hub -->
+</div>
+
+<footer class="footer">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/contact">Contact</a>
+</footer>
+
+<!-- Scripting Section -->
+<script src = "../../scripts/main.js"></script>
+<script src = "../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src = "../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // Add an event listener for the footer links
+    document.querySelector('.footer').addEventListener('click', function (event) {
+        // Prevent the default behavior of links
+        event.preventDefault();
+
+        // Get the href attribute of the clicked link
+        const href = event.target.getAttribute('href');
+
+        // Navigate to the selected page
+        window.location.href = href;
+    });
+</script>
+
+</body>
+
+</html>
+

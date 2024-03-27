@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team</title>
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="../../content/style.css">
+
+</head>
+<body>
+
+<header></header>
+
+<!-- Modal -->
+<div class="container">
+<div class="modal fade" id="christopherModal" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Christopher Gugelmeier</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Computer Programming Student</li>
+                    <li>Semester 4</li>
+                    <li>Writes front and backend code for the harmony hub website</li>
+                    <li>christopher.gugelmeier@harmonyhub.com</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="andreiModal" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Andrei Koshelev</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Computer Programming Student</li>
+                    <li>Semester 4</li>
+                    <li>Writes front and backend code for the harmony hub website</li>
+                    <li>andrei.koshelev@harmonyhub.com</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="column">
+                <button type="button" class="teamBtn" data-bs-toggle="modal" data-bs-target="#christopherModal">
+                    <img class="teamImage" src="../../content/Christopher.png" alt="Christopher">
+                </button>
+                <h4 class="my-3">Christopher Gugelmeier</h4>
+                <p>Web Developer</p>
+            <button type="button" class="teamBtn" data-bs-toggle="modal" data-bs-target="#andreiModal">
+                <img class="teamImage" src="../../content/Andrei.jpg" alt="Andrei">
+            </button>
+            <h4 class="my-3">Andrei Koshelev</h4>
+            <p>Web Developer</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/contact">Contact</a>
+</footer>
+
+<!-- Scripting Section -->
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../scripts/main.js"></script>
+
+</body>
+</html>

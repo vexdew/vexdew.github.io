@@ -1,0 +1,132 @@
+<!-- blog.html-->
+<!-- Authors: Christopher Gugelmeier, Andrei Koshelev -->
+<!-- Student ID: 100852340, 100894383-->
+<!-- Date of Completion: 01-27-2024-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="../../content/app.css">
+    <link rel="stylesheet" href="../../content/style.css">
+
+    <script src = "../../scripts/namespace.js"></script>
+    <script src = "../../scripts/router.js"></script>
+    <script src = "../../scripts/user.js"></script>
+    <script src = "../../scripts/contact.js"></script>
+
+</head>
+<body>
+
+<header></header>
+<!--<main>-->
+<div class="container">
+    <!-- Container for the main content -->
+    <div class="header">
+        <!-- Header section with title -->
+        <h2>Harmony Hub's Blog</h2><br/>
+    </div>
+
+    <div class="row" id="article-container">
+        <!-- Container for articles -->
+        <!-- Your existing article cards go here -->
+
+        <!-- First Article Card -->
+        <div class="leftcolumn">
+            <div class="card" id="cardContainer" style="text-align:center">
+                <!-- Card with article content -->
+                <h3>Community Highlight: The Significant Projects of Harmony Hub</h3>
+                <h5>Discover the core of Harmony Hub's community-oriented initiatives, Dec 19, 2024</h5>
+                <img class="img" src="../../content/project.jpg" alt="Harmony Hub Project"></img>
+                <p class="centered-left-text">
+                    <!-- Paragraph with article content -->
+                    The successful initiatives of Harmony Hub provide as evidence for the idea that technology, when
+                    used for charitable endeavors,<br/>may change people's lives. Come along on this path of good
+                    transformation, where every project represents a step toward a society<br/>that is more connected
+                    and harmonious.<br/><br/>
+
+                    Watch this space for additional information about our upcoming and current initiatives.
+                    By working together,<br/>we can make a significant difference and establish a community that values
+                    peace and harmony.<br/><br/>
+                </p>
+                <div class="centered-left-text">
+                    <!-- Additional hidden content for the article -->
+                    <p id="hiddenContent">
+                        <b>Using Technology to Bridge Generations:</b>
+                        <!-- Subsection within the article -->
+                        We at Harmony Hub recognize the value of promoting intergenerational<br/>relationships. Our intergenerational initiatives, which combine cooperative projects with technology mentoring,
+                        have shown to<br/>be an effective means of closing the age divide. These programs, which range from
+                        teaching elders how to code to working<br/>together on community-driven projects, encourage mutual
+                        learning and foster enduring relationships between people of all ages.<br/><br/>
+
+                        <!-- Additional subsections within the article -->
+                        <b>Tech for Everyone: Providing Empowerment via Digital Literacy</b>
+                        In this technologically driven age, being<br/>digitally literate is essential. The Tech for All project
+                        by Harmony Hub seeks to empower people by giving them<br/>access to digital resources and education,
+                        regardless of their background. We are committed to leveling the playing<br/>field and making sure
+                        that everyone can prosper in the digital era, offering everything from beginning computer classes<br/>
+                        to expert coding courses.<br/><br/>
+                    </p>
+                </div>
+                <button id="load-more-btn" style="width:100px; align-self: center;">Load More</button>
+                <!-- Button to load more content -->
+                <br/><br/>
+            </div>
+        </div>
+
+        <!-- Second Article Card (Similar structure as the first one) -->
+        <div class="card" id="cardContainer1" style="text-align:center">
+            <h3>Generations Connect: Intergenerational Programs</h3>
+            <h5>Cooperative initiatives help close the generational divide by promoting relationships amongst various age groups, Dec 28, 2024</h5>
+            <img class="img" src="../../content/digital-devide.jpg" alt="Harmony Hub Project"></img>
+            <p class="centered-left-text">
+                Bridge the generation gap with our intergenerational programs at Harmony Hub. From technology mentoring to collaborative projects,<br/>these initiatives foster connections between different age groups. Experience the joy of shared learning and community building.<br/><br/>
+
+                Within the vibrant fabric of communal life, Harmony Hub takes great pleasure in its dedication to creating connections between generations.<br/> Our Intergenerational Programs are evidence of our conviction that encouraging relationships between various age groups not only <br/>improves lives but also builds a peaceful and advantageous community. Come along on a journey where wisdom and technology<br/>collide and generations meaningfully interact.<br/><br/>
+            </p>
+            <div class="centered-left-text">
+                <p id="hiddenContent1">
+                    <!-- Additional hidden content for the second article -->
+                    <b>Overcoming the Digital Divide:</b>
+                    Harmony Hub understands the significance of making sure that every generation is prepared<br/>with the fundamental technology skills in an ever-improving digital society. Our cross-generational programs go beyond<br/>instructing senior citizens on smartphone navigation and social media usage. They cover a broad spectrum of technology topics,<br/>from more complex coding abilities to rudimentary digital literacy. By doing this, we provide the resources older generations<br/>require<br/>to prosper in a world that is becoming more and more digital.<br/><br/>
+
+                    <b>Coaching and Self-Empowerment</b>
+                    Mentoring relationships are given priority in Harmony Hub's Intergenerational Programs<br/>so that people can learn from one other. The elder generations act as mentors, offering the younger generations assistance,<br/>direction, and a wealth of information. Mentoring not only gives the younger generation a sense of empowerment,<br/>but it also gives the mentors a sense of fulfillment and purpose.<br/><br/>
+
+                    <b>Storytelling and Cultural Exchange</b>
+                    Harmony Hub aims to conserve and celebrate the art of storytelling in a time when<br/>digital media frequently eclipses traditional storytelling. As part of our intergenerational programs,<br/>older people share<br/>their cultural history, life lessons, and knowledge with younger people through storytelling sessions. Generational continuity,<br/>respect, and understanding are fostered by this cross-cultural interaction.<br/><br/>
+                </p>
+            </div>
+            <button id="load-more-btn1" style="width:100px; align-self: center;">Load More</button>
+            <br/><br/>
+        </div>
+    </div>
+        <div class="rightcolumn">
+            <!-- Your existing content goes here -->
+        </div>
+    </div>
+
+    <!-- Popup container for additional information -->
+    <div class="popup" id="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">x</span>
+            <!-- Additional information goes here -->
+        </div>
+    </div>
+
+
+<!--</main>-->
+<footer></footer>
+
+<script src = "../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src = "../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src = "../../scripts/namespace.js"></script>
+<script src = "../../scripts/contact.js"></script>
+<script src = "../../scripts/main.js"></script>
+
+</body>
+</html>

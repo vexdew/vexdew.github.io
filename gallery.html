@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Christopher Gugelmeier, Andrei Koshelev">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content=ie=edge>
+    <title>Portfolio</title>
+
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="../../content/app.css">
+    <link rel="stylesheet" href="../../content/style.css">
+
+    <script src = "../../scripts/namespace.js"></script>
+    <script src = "../../scripts/router.js"></script>
+    <script src = "../../scripts/user.js"></script>
+    <script src = "../../scripts/contact.js"></script>
+</head>
+
+<body>
+
+<header></header>
+
+<div id="container">
+    <div class="gallery">
+        <img src="../../content/community-projects.jpg" onclick="openModal();currentSlide(1)" alt="community-projects">
+        <img src="../../content/digital-devide.jpg" onclick="openModal();currentSlide(2)" alt="digital-devide">
+        <img src="../../content/workshops.jpg" onclick="openModal();currentSlide(3)" alt="workshops">
+        <img src="../../content/tech-classes-and-events.jpg" onclick="openModal();currentSlide(4)" alt="tech-classes-and-events">
+        <img src="../../content/project.jpg" onclick="openModal();currentSlide(5)" alt="project">
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+                <div class="numbertext">1 / 5</div>
+                <img src="../../content/community-projects.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">2 / 5</div>
+                <img src="../../content/digital-devide.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">3 / 5</div>
+                <img src="../../content/workshops.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">4 / 5</div>
+                <img src="../../content/tech-classes-and-events.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">5 / 5</div>
+                <img src="../../content/project.jpg" style="width:100%">
+            </div>
+
+            <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+            <!-- Thumbnail image controls -->
+            <div class="column">
+                <img class="demo" src="../../content/community-projects.jpg" onclick="currentSlide(1)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" src="../../content/digital-devide.jpg" onclick="currentSlide(2)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" src="../../content/workshops.jpg" onclick="currentSlide(3)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" src="../../content/tech-classes-and-events.jpg" onclick="currentSlide(4)" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" src="../../content/project.jpg" onclick="currentSlide(5)" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer></footer>
+
+<!-- Scripting Section -->
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../scripts/main.js"></script>
+
+</body>
+</html>
