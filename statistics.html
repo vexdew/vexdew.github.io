@@ -28,38 +28,39 @@
 <div class="container">
     <div class="header">
         <h2>Statistics</h2>
-		<canvas id="StatisticsChart" style="width:100%;max-width:500px"></canvas>
     </div>
+	
+	<canvas id="StatisticsChart" style="width:100%;max-width:500px"></canvas>
+	
+	<script>
+	const xValues = ["January", "February", "March", "April", "May"];
+	const yValues = [21, 35, 86, 18, 47];
+	const barColors = [
+	  "#EA7B63",
+	  "#6DD53D",
+	  "#42CDC9",
+	  "#8652E0",
+	  "#E05297"
+	];
+
+	new Chart("StatisticsChart", {
+	  type: "doughnut",
+	  data: {
+		labels: xValues,
+		datasets: [{
+		  backgroundColor: barColors,
+		  data: yValues
+		}]
+	  },
+	  options: {
+		title: {
+		  display: true,
+		  text: "Harmony Hub Visitor Statistics 2024"
+		}
+	  }
+	});
+	</script>
 </div>
-
-<script>
-const xValues = ["January", "February", "March", "April", "May"];
-const yValues = [21, 35, 86, 18, 47];
-const barColors = [
-  "#EA7B63",
-  "#6DD53D",
-  "#42CDC9",
-  "#8652E0",
-  "#E05297"
-];
-
-new Chart("StatisticsChart", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Harmony Hub Visitor Statistics 2024"
-    }
-  }
-});
-</script>
 
 <footer class="footer">
     <a href="/privacy">Privacy</a>
