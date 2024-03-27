@@ -65,14 +65,14 @@ video {
 }
 
 /* Custom styling to reduce spacing */
-.container-custom {
+.container.container-custom {
 	padding-top: 20px; /* Adjust the top padding as needed */
 	padding-bottom: 20px; /* Adjust the bottom padding as needed */
 }
 .header-custom {
 	margin-bottom: 10px; /* Reduce margin below the header */
 }
-.chart-size {
+.canva.chart-size {
 	width: 100% !important; /* Makes the chart width responsive */
 	max-width: 500px; /* Maximum chart width */
 	aspect-ratio: 1.6; /* Sets the width to height ratio, adjust as needed */
