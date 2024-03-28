@@ -48,6 +48,26 @@
     <canvas id="StatisticsChart" class="chart-size"></canvas>
 
     <script>
+	
+	    function renderChart(chartId, chartType, chartTitle, xValues, yValues, barColors) {
+            new Chart(chartId, {
+                type: chartType,
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: chartTitle
+                    }
+                }
+            });
+        }
+		
         function fetchData() {
             fetch('./data/statistics.json') // Path to your JSON file
                 .then(response => response.json())
@@ -56,22 +76,9 @@
                     const yValues = data.map(item => item.visitors);
                     const barColors = data.map(item => item.color);
 
-                    new Chart("StatisticsChart", {
-                        type: "doughnut",
-                        data: {
-                            labels: xValues,
-                            datasets: [{
-                                backgroundColor: barColors,
-                                data: yValues
-                            }]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: "Harmony Hub Visitor Statistics 2024"
-                            }
-                        }
-                    });
+					renderChart("DoughnutChart", "doughnut", "Harmony Hub Visitor Statistics 2024", xValues, yValues, barColors);
+					renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024", xValues, yValues, barColors);
+
                 })
                 .catch(error => console.error('Error fetching data:', error));
         }
