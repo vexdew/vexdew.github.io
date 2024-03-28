@@ -53,16 +53,14 @@
 
     <script>
 	
-	    function renderChart(chartId, chartType, chartTitle, xValues, yValues, barColors) {
-            new Chart(chartId, {
-                type: chartType,
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
-                    }]
-                },
+    function renderChart(chartId, chartType, chartTitle, dataSets, options) {
+        const ctx = document.getElementById(chartId).getContext('2d'); // Get the context of the canvas
+        new Chart(ctx, {
+            type: chartType,
+            data: {
+                labels: dataSets.labels,
+                datasets: dataSets.datasets
+            },
                 options: {
                     title: {
                         display: true,
@@ -72,39 +70,50 @@
             });
         }
 		
-		function fetchData() {
-            fetch('./data/statistics.json')
-                .then(response => response.json())
-                .then(data => {
-                    const months = data.map(item => item.month);
-                    const visitors = data.map(item => item.visitors);
-                    const additionalVisitors = data.map(item => item.additionalVisitors);
-                    const colors = data.map(item => item.color);
+    function fetchData() {
+        fetch('./data/statistics.json')
+            .then(response => response.json())
+            .then(data => {
+                const months = data.map(item => item.month);
+                const visitors = data.map(item => item.visitors);
+                const additionalVisitors = data.map(item => item.additionalVisitors);
+                const colors = data.map(item => item.color);
 
-                    // Doughnut Chart
-                    renderChart("DoughnutChart", "doughnut", "Harmony Hub Visitor Statistics 2024 - Doughnut Chart", {
-                        labels: months,
-                        datasets: [{ backgroundColor: colors, data: visitors }]
-                    }, { title: { display: true, text: "Visitor Statistics by Month" }});
+                // Doughnut Chart
+                renderChart("DoughnutChart", "doughnut", "Harmony Hub Visitor Statistics 2024 - Doughnut Chart", {
+                    labels: months,
+                    datasets: [{
+                        backgroundColor: colors,
+                        data: visitors
+                    }]
+                }, {});
 
-                    // Bar Chart
-                    renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024 - Bar Chart", {
-                        labels: months,
-                        datasets: [{ backgroundColor: colors, data: visitors }]
-                    }, { title: { display: true, text: "Additional Visitors by Month" }});
+                // Bar Chart
+                renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024 - Bar Chart", {
+                    labels: months,
+                    datasets: [{
+                        backgroundColor: colors,
+                        data: visitors
+                    }]
+                }, {});
 
-                    // Multiple Lines Chart
-                    const lineChartDataSets = [
-                        { label: "Visitors", data: visitors, borderColor: "#3e95cd", fill: false },
-                        { label: "Additional Visitors", data: additionalVisitors, borderColor: "#8e5ea2", fill: false }
-                    ];
-                    renderChart("MultipleLinesChart", "line", "Harmony Hub Visitor Statistics 2024 - Multiple Lines Charts", {
-                        labels: months,
-                        datasets: lineChartDataSets
-                    }, { title: { display: true, text: "Monthly Visitors vs Additional Visitors" }});
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
+                // Multiple Lines Chart
+                const lineChartDataSets = [
+                    { label: "Visitors", data: visitors, borderColor: "#3e95cd", fill: false },
+                    { label: "Additional Visitors", data: additionalVisitors, borderColor: "#8e5ea2", fill: false }
+                ];
+                renderChart("MultipleLinesChart", "line", "Harmony Hub Visitor Statistics 2024 - Multiple Lines Charts", {
+                    labels: months,
+                    datasets: lineChartDataSets
+                }, {
+                    scales: {
+                        yAxes: [{ ticks: { beginAtZero: true } }],
+                        xAxes: [{ }]
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
 
         // Call fetchData when the page loads
         window.onload = fetchData;
