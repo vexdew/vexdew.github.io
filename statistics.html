@@ -89,18 +89,42 @@
                 }, {});
 
                 // Bar Chart
-                renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024 - Bar Chart", {
-                    labels: months,
-                    datasets: [{
-                        backgroundColor: colors,
-                        data: visitors
-                    }]
-                }, {});
+				renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024 - Bar Chart", {
+					labels: months,
+					datasets: [
+						{
+							label: "Visitors", // First dataset label
+							backgroundColor: colors,
+							data: visitors
+						},
+						{
+							label: "Additional Visitors", // Second dataset label
+							backgroundColor: "anotherColorArrayHere", // This should be another array of colors
+							data: additionalVisitors
+						}
+					]
+				}, {
+					scales: {
+						yAxes: [{ ticks: { beginAtZero: true } }],
+						xAxes: [{ }]
+					},
+					legend: {
+						display: true
+					}
+				});
 
                 // Multiple Lines Chart
                 const lineChartDataSets = [
-                    { label: "Visitors", data: visitors, borderColor: "#3e95cd", fill: false },
-                    { label: "Additional Visitors", data: additionalVisitors, borderColor: "#8e5ea2", fill: false }
+                    {  label: "Visitors", 
+					   data: visitors, 
+					   borderColor: "#3e95cd", 
+					   fill: false 
+					},
+                    {  label: "Additional Visitors", 
+					   data: additionalVisitors, 
+					   borderColor: "#8e5ea2", 
+					   fill: false 
+					}
                 ];
                 renderChart("MultipleLinesChart", "line", "Harmony Hub Visitor Statistics 2024 - Multiple Lines Charts", {
                     labels: months,
