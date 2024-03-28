@@ -11,37 +11,47 @@
                 <li id="home" class="nav-item">
                     <a class="nav-link" href="/home"><i class="fa-solid fa-house"></i> Home</a>
                 </li>
-                <!--                 <li class="nav-item">
-                                    <a class="nav-link" href="/portfolio"><i class="fa-solid fa-bag-shopping"></i> Portfolio</a>
-                                </li> -->
                 <li id="services" class="nav-item">
                     <a class="nav-link" href="/services"><i class="fa-solid fa-note-sticky"></i> Services</a>
                 </li>
-                <!--                 <li class="nav-item">
-                                    <a class="nav-link" href="/team"><i class="fa-solid fa-bell-concierge"></i> Team</a>
-                                </li> -->
                 <li id="blog" class="nav-item">
                     <a class="nav-link" href="/blog"><i class="fa-solid fa-phone"></i> Blog</a>
                 </li>
-				
-				<li id="statistics" class="nav-item">
+                <li id="statistics" class="nav-item">
                     <a class="nav-link" href="/statistics"><i class="fa-solid fa-chart-simple"></i> Statistics</a>
                 </li>
-				
-				<li id="event_planning" class="nav-item">
+                <li id="event_planning" class="nav-item">
                     <a class="nav-link" href="/event_planning"><i class="fa-solid fa-calendar"></i> Event Planning</a>
                 </li>
-				
                 <li id="login" class="nav-item">
                     <a class="nav-link" href="/login"><i class="fa-solid fa-sign-in-alt"></i> Login</a>
                 </li>
-                <!--                 <li id="events" class="nav-item">
-                                    <a class="nav-link" href="/events"><i class="fa-solid fa-sign-in-alt"></i> Events</a>
-                                </li>
-                                <li id="gallery" class="nav-item">
-                                    <a class="nav-link" href="/gallery"><i class="fa-solid fa-sign-in-alt"></i> Gallery</a>
-                                </li> -->
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    function isUserLoggedIn() {
+        return sessionStorage.getItem("user") !== null;
+    }
+
+    function adjustNavForUser() {
+        const loggedIn = isUserLoggedIn();
+
+        const loggedInNavItems = ['statistics', 'event_planning'];
+        const loggedOutNavItems = ['login'];
+
+        loggedInNavItems.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) element.style.display = loggedIn ? '' : 'none';
+        });
+
+        loggedOutNavItems.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) element.style.display = loggedIn ? 'none' : '';
+        });
+    }
+
+    window.onload = adjustNavForUser;
+</script>
