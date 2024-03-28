@@ -8,18 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navItems">
-                <li id="home" class="nav-item">
-                    <a class="nav-link" href="/home"><i class="fa-solid fa-house"></i> Home</a>
-                </li>
-                <li id="services" class="nav-item">
-                    <a class="nav-link" href="/services"><i class="fa-solid fa-note-sticky"></i> Services</a>
-                </li>
-                <li id="blog" class="nav-item">
-                    <a class="nav-link" href="/blog"><i class="fa-solid fa-phone"></i> Blog</a>
-                </li>
-                <li id="login" class="nav-item">
-                    <a class="nav-link" href="/login"><i class="fa-solid fa-sign-in-alt"></i> Login</a>
-                </li>
+                <!-- Navbar links will be inserted here based on login status -->
             </ul>
         </div>
     </div>
@@ -30,24 +19,48 @@
         return sessionStorage.getItem("user") !== null;
     }
 
-    function addProtectedLinks() {
+    function populateNavbar() {
+        const navItems = document.getElementById('navItems');
         if (isUserLoggedIn()) {
-            const navItems = document.getElementById('navItems');
-
-            const statisticsLi = document.createElement('li');
-            statisticsLi.className = 'nav-item';
-            statisticsLi.innerHTML = '<li id="login" class="nav-item"><a class="nav-link" href="/statistics"><i class="fa-solid fa-chart-simple"></i> Statistics</a><li id="login" class="nav-item">';
-            
-            const eventPlanningLi = document.createElement('li');
-            eventPlanningLi.className = 'nav-item';
-            eventPlanningLi.innerHTML = '<a class="nav-link" href="/event_planning"><i class="fa-solid fa-calendar"></i> Event Planning</a>';
-            
-            navItems.appendChild(statisticsLi);
-            navItems.appendChild(eventPlanningLi);
+            // Navbar content for logged-in users
+            navItems.innerHTML = `
+                <li class="nav-item">
+                    <a class="nav-link" href="/home"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services"><i class="fa-solid fa-note-sticky"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog"><i class="fa-solid fa-phone"></i> Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/statistics"><i class="fa-solid fa-chart-simple"></i> Statistics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/event_planning"><i class="fa-solid fa-calendar"></i> Event Planning</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                </li>
+            `;
+        } else {
+            // Navbar content for guests (logged-out users)
+            navItems.innerHTML = `
+                <li class="nav-item">
+                    <a class="nav-link" href="/home"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services"><i class="fa-solid fa-note-sticky"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog"><i class="fa-solid fa-phone"></i> Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login"><i class="fa-solid fa-sign-in-alt"></i> Login</a>
+                </li>
+            `;
         }
     }
 
-    window.onload = function() {
-        addProtectedLinks();
-    };
+    window.onload = populateNavbar;
 </script>
