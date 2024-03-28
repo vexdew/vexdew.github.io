@@ -44,31 +44,41 @@
     <div class="header header-custom">
         <h2>Visitor Statistics</h2>
     </div>
-	
-	<canvas id="StatisticsChart" class="chart-size"></canvas>
-	
-	<script>
-	const xValues = ["January", "February", "March", "April", "May"];
-	const yValues = [21, 35, 86, 18, 47];
-	const barColors = ["#EA7B63", "#6DD53D", "#42CDC9", "#8652E0", "#E05297"];
 
-	new Chart("StatisticsChart", {
-	  type: "doughnut",
-	  data: {
-		labels: xValues,
-		datasets: [{
-		  backgroundColor: barColors,
-		  data: yValues
-		}]
-	  },
-	  options: {
-		title: {
-		  display: true,
-		  text: "Harmony Hub Visitor Statistics 2024"
-		}
-	  }
-	});
-	</script>
+    <canvas id="StatisticsChart" class="chart-size"></canvas>
+
+    <script>
+        function fetchData() {
+            fetch('./statistics.json') // Path to your JSON file
+                .then(response => response.json())
+                .then(data => {
+                    const xValues = data.map(item => item.month);
+                    const yValues = data.map(item => item.visitors);
+                    const barColors = data.map(item => item.color);
+
+                    new Chart("StatisticsChart", {
+                        type: "doughnut",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                backgroundColor: barColors,
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: "Harmony Hub Visitor Statistics 2024"
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Call fetchData when the page loads
+        window.onload = fetchData;
+    </script>
 	<br/><br/>
 	<br/><br/>
 </div>

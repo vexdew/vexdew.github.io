@@ -1,0 +1,27 @@
+[
+  {
+    "month": "January",
+    "visitors": 21,
+    "color": "#EA7B63"
+  },
+  {
+    "month": "February",
+    "visitors": 35,
+    "color": "#6DD53D"
+  },
+  {
+    "month": "March",
+    "visitors": 86,
+    "color": "#42CDC9"
+  },
+  {
+    "month": "April",
+    "visitors": 18,
+    "color": "#8652E0"
+  },
+  {
+    "month": "May",
+    "visitors": 47,
+    "color": "#E05297"
+  }
+]
