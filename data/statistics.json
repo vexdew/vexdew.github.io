@@ -2,26 +2,73 @@
   {
     "month": "January",
     "visitors": 21,
+	"additionalVisitors": 30,
     "color": "#EA7B63"
   },
   {
     "month": "February",
     "visitors": 35,
+	"additionalVisitors": 45,
     "color": "#6DD53D"
   },
   {
     "month": "March",
     "visitors": 86,
+	"additionalVisitors": 50,
     "color": "#42CDC9"
   },
   {
     "month": "April",
     "visitors": 18,
+	"additionalVisitors": 22,
     "color": "#8652E0"
   },
   {
     "month": "May",
     "visitors": 47,
+	"additionalVisitors": 55,
     "color": "#E05297"
+  },
+  {
+	"month": "June", 
+	"visitors": 75,
+	"additionalVisitors": 65,
+	"color": "#D4AC0D"
+  },
+  {
+	"month": "July", 
+	"visitors": 56, 
+	"additionalVisitors": 58, 
+	"color": "#C0392B"
+  },
+  {
+	"month": "August", 
+	"visitors": 68, 
+	"additionalVisitors": 70, 
+	"color": "#1ABC9C"
+  },
+  {
+	"month": "September", 
+	"visitors": 54, 
+	"additionalVisitors": 62,
+	"color": "#34495E"
+  },
+  {
+	"month": "October", 
+	"visitors": 60,
+	"additionalVisitors": 55,
+	"color": "#9B59B6"
+  },
+  {
+	"month": "November", 
+	"visitors": 49, 
+	"additionalVisitors": 45,
+	"color": "#3498DB"
+  },
+  {
+	"month": "December", 
+	"visitors": 80, 
+	"additionalVisitors": 90,
+	"color": "#2ECC71"
   }
 ]

@@ -48,6 +48,8 @@
     <canvas id="DoughnutChart" class="chart-size"></canvas>
 
 	<canvas id="BarChart" class="chart-size"></canvas>
+	
+	<canvas id="MultipleLinesChart" class="chart-size"></canvas>
 
     <script>
 	
@@ -70,17 +72,36 @@
             });
         }
 		
-        function fetchData() {
-            fetch('./data/statistics.json') // Path to your JSON file
+		function fetchData() {
+            fetch('./data/statistics.json')
                 .then(response => response.json())
                 .then(data => {
-                    const xValues = data.map(item => item.month);
-                    const yValues = data.map(item => item.visitors);
-                    const barColors = data.map(item => item.color);
+                    const months = data.map(item => item.month);
+                    const visitors = data.map(item => item.visitors);
+                    const additionalVisitors = data.map(item => item.additionalVisitors);
+                    const colors = data.map(item => item.color);
 
-					renderChart("DoughnutChart", "doughnut", "Harmony Hub Visitor Statistics 2024", xValues, yValues, barColors);
-					renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024", xValues, yValues, barColors);
+                    // Doughnut Chart
+                    renderChart("DoughnutChart", "doughnut", "Harmony Hub Visitor Statistics 2024 - Doughnut Chart", {
+                        labels: months,
+                        datasets: [{ backgroundColor: colors, data: visitors }]
+                    }, { title: { display: true, text: "Visitor Statistics by Month" }});
 
+                    // Bar Chart
+                    renderChart("BarChart", "bar", "Harmony Hub Visitor Statistics 2024 - Bar Chart", {
+                        labels: months,
+                        datasets: [{ backgroundColor: colors, data: visitors }]
+                    }, { title: { display: true, text: "Additional Visitors by Month" }});
+
+                    // Multiple Lines Chart
+                    const lineChartDataSets = [
+                        { label: "Visitors", data: visitors, borderColor: "#3e95cd", fill: false },
+                        { label: "Additional Visitors", data: additionalVisitors, borderColor: "#8e5ea2", fill: false }
+                    ];
+                    renderChart("MultipleLinesChart", "line", "Harmony Hub Visitor Statistics 2024 - Multiple Lines Charts", {
+                        labels: months,
+                        datasets: lineChartDataSets
+                    }, { title: { display: true, text: "Monthly Visitors vs Additional Visitors" }});
                 })
                 .catch(error => console.error('Error fetching data:', error));
         }
