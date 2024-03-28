@@ -49,7 +49,7 @@
 
     <script>
         function fetchData() {
-            fetch('./statistics.json') // Path to your JSON file
+            fetch('./data/statistics.json') // Path to your JSON file
                 .then(response => response.json())
                 .then(data => {
                     const xValues = data.map(item => item.month);
